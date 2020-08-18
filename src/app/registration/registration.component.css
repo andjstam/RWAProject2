@@ -2,11 +2,11 @@
     padding:20px;
     display: flex;
     flex-direction: column;
-    min-width: 560px;
+    min-width: 600px;
     min-height: 550px;
     align-self: center;
     justify-content: space-around;
-    background-color: rgba(70, 67, 67, 0.733);
+    background-color: rgba(100, 99, 99, 0.733);
     margin:40px;
     border-radius: 4px;
 }

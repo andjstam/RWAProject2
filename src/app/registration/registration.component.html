@@ -19,7 +19,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Unesite password</mat-label>
-        <input id="input-passwprd" matInput type="password" required>
+        <input id="input-password" matInput type="password" required>
     </mat-form-field>
     <mat-form-field *ngIf="isDirector" appearance="fill" class="example-full-width">
         <mat-label>Unesite vaš sertifikat </mat-label>
@@ -27,12 +27,13 @@
     </mat-form-field>
     <mat-form-field *ngIf="isUser" appearance="fill" required>
         <mat-label>Izaberite vaše zanimanje</mat-label>
-        <mat-select>
-          <mat-option value="glumac">Glumac</mat-option>
-          <mat-option value="snimatelj">Snimatelj</mat-option>
-          <mat-option value="statista">Statista</mat-option>
+        <mat-select [(value)]="selectedSelect">
+          <mat-option value="glumac" >Glumac</mat-option>
+          <mat-option value="snimatelj" >Snimatelj</mat-option>
+          <mat-option value="statista" >Statista</mat-option>
         </mat-select>
       </mat-form-field>
+    <mat-label>{{errorMsg}}</mat-label>
     
     <button class="registration-btn" (click)="btnRegistrujClicked();" type="button">Registruj se</button>
 </div>

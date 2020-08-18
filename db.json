@@ -35,5 +35,28 @@
       "id": 5,
       "password": "biljana"
     }
+  ],
+  "reziser":[
+    {
+      "id": 1,
+      "ime": "Sebastian",
+      "prezime": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com",
+      "password": "sebi",
+      "sertifikat": ""
+    }
+  ],
+  "korisnik":[
+    {
+      "id": 1,
+      "ime": "Andjela",
+      "prezime": "Stamenkovic",
+      "email": "andjstam@gmail.com",
+      "password": "andjaandja",
+      "tip":"",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": ""
+    }
   ]
 }

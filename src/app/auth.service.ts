@@ -21,12 +21,5 @@ export class AuthService {
     return this.http.post<Object>(this.baseUrl, novi);
   }
 
-  loginUser():Observable<any>{
-    let log={
-        "email":"sebastian@codingthesmartway.com",
-        "password": "sebi"
-    }
-    return this.http.post<Object>(this.baseUrl, log);
-  }
 
 }

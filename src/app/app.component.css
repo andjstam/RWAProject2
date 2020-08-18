@@ -1,7 +1,7 @@
 .nav-bar{
     display: flex;
     justify-content: flex-end;
-    background-color: rgb(71, 71, 71);
+    background-color: rgba(37, 78, 88, 0.966);
 }
 .logo{
     margin: 20px;
@@ -10,6 +10,7 @@
 }
 
 .text-logo{
+    margin-right: 30px;
     padding-top: 18px;
     color:rgb(204, 46, 46);
     text-transform: uppercase;
@@ -17,7 +18,7 @@
 }
 
 .footer{
-   background-color:rgb(41, 41, 41);
+   background-color:rgba(37, 78, 88, 0.966);
     height: 120px;
     display: flex;
     flex-direction: column;

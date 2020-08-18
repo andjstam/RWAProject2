@@ -6,10 +6,10 @@
     align-items: center;
 }
 .main-page{
-    margin-top: 40px;
+    /* margin-top: 40px; */
     margin-bottom: 100px;
     width:100%;
-    min-height: 680px;
+    min-height: 620px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -32,8 +32,8 @@
 
 .text-customers{
     margin-left: 100px;
-    margin-top: 55px;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     font-size: 30px;
@@ -44,8 +44,8 @@
 .main-page-picture{
     align-self: end;
     background-image: url("../../assets/movie1.jpg");
-    height: 400px;
-    width: 520px;
+    height: 420px;
+    width: 560px;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
