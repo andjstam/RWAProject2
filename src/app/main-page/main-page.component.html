@@ -1,0 +1,25 @@
+<div class="glavni">
+    <div class="main-page">
+        <div class="left-div">
+            <div class="text-customers">
+                <label>reditelji,</label>
+                <label>glumci,</label>
+                <label>snimatelji,</label>
+                <label>statisti:</label>
+            </div>
+            <div class="main-page-picture"></div>
+            <button  class="login-btn" (click)="showLogInModal()" >LOGIN</button>
+        </div>
+        <div class="right-div">
+            <div class="text-actions">
+                <label>Dogadjaji</label>
+                <label>Prijavljivanje</label>
+                <label>Kontakti</label>
+                <label>Organizacija</label>
+            </div>
+        </div>
+    </div>
+    <registration></registration>
+</div>
+
+<login *ngIf='displayLogIn' (cancelClicked)='hideLogInModal()'></login>

@@ -1,0 +1,38 @@
+<div class="reg-glavni-div">
+    <label class="reg-labela">Registracija</label>
+
+    <mat-radio-group aria-label="Select an option" class="radio-opiton" required>
+        <mat-radio-button value="reziser" class="rd-btn" (change)="radioChange($event);">Režiser</mat-radio-button>
+        <mat-radio-button value="korisnik" class="rd-btn" (change)="radioChange($event)">Korisnik</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Unesite ime</mat-label>
+        <input id="input-ime" matInput required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Unesite prezime</mat-label>
+        <input id="input-prezime" matInput required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Unesite email</mat-label>
+        <input id="input-email" matInput placeholder="user@gmail.com" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Unesite password</mat-label>
+        <input id="input-passwprd" matInput type="password" required>
+    </mat-form-field>
+    <mat-form-field *ngIf="isDirector" appearance="fill" class="example-full-width">
+        <mat-label>Unesite vaš sertifikat </mat-label>
+        <input id="input-sertificate" matInput required>
+    </mat-form-field>
+    <mat-form-field *ngIf="isUser" appearance="fill" required>
+        <mat-label>Izaberite vaše zanimanje</mat-label>
+        <mat-select>
+          <mat-option value="glumac">Glumac</mat-option>
+          <mat-option value="snimatelj">Snimatelj</mat-option>
+          <mat-option value="statista">Statista</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    <button class="registration-btn" (click)="btnRegistrujClicked();" type="button">Registruj se</button>
+</div>

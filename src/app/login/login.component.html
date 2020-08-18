@@ -1,0 +1,29 @@
+<div class='log-modalBackground'>
+    <div class='log-modal'>
+        <div class="log-modal-header">
+            <span (click)="cancelLogIn()" class="log-cancel">&times;</span>
+        </div>
+        <div class="log-image">
+            <img class="log-image-image"src="../../assets/user.png">
+        </div>
+        <div class="log-modal-main">
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="user@gmail.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [formControl]="password"  id="password-input" type="password" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessagePassword()}}</mat-error>
+            </mat-form-field>
+              
+            <!-- <input class="log-input" id="username-input" type="text" placeholder="Username" required> -->
+            <!-- <input class="log-input" id="password-input" type="password" placeholder="Password" required> -->
+            <label class="error-message"></label>
+            <button mat-button color="warn" value="underline">Underline</button>
+            <!-- <button class="log-loginBtn" type="submit" >Log In</button> -->
+        </div>
+    </div>
+</div> 
