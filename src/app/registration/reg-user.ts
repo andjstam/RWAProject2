@@ -1,20 +1,15 @@
 export interface IRegUser {
-    id: string;
-    first_name: string;
-    last_name: string;
     email: string;
+    password: string;
 }
 
 export class RegUser implements IRegUser{
-    id:string;
-    first_name: string;
-    last_name: string;
     email: string;
+    password: string;
 
-    constructor(fr,la,em) {
-        this.first_name=fr;
-        this.last_name=la;
+    constructor(em, pass) {
         this.email=em;
+        this.password=pass;
     }
   
 }

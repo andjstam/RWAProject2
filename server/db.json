@@ -1,0 +1,24 @@
+{
+  
+  "reziser":[
+    {
+      "id": 1,
+      "ime": "Sebastian",
+      "prezime": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com",
+      "sertifikat": ""
+    }
+  ],
+  "korisnik":[
+    {
+      "id": 1,
+      "ime": "Andjela",
+      "prezime": "Stamenkovic",
+      "email": "andjstam@gmail.com",
+      "tip":"",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": ""
+    }
+  ]
+}

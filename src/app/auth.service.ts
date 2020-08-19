@@ -8,7 +8,7 @@ import {RegUser} from './registration/reg-user'
 })
 export class AuthService {
 
-  private baseUrl="http://localhost:3000/users";
+  private baseUrl="http://localhost:3000/korisnik";
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +17,9 @@ export class AuthService {
   }
 
   postRegisteredUser(): Observable<any>{
-    let novi= new RegUser("biljana", "stam","b@elfak.rs")
-    return this.http.post<Object>(this.baseUrl, novi);
+    const url="http://localhost:3000/auth/login";
+    let novi= new RegUser("bruno@email.com", "bruno")
+    return this.http.post<Object>(url, novi);
   }
 
 

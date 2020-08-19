@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'registration',
@@ -15,7 +16,8 @@ export class RegistrationComponent implements OnInit {
   isUser:boolean;
   errorMsg="";
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService,
+              private jwtHelper: JwtHelperService){
     this.isDirector=false;
     this.isUser=false;
    }
@@ -38,34 +40,42 @@ export class RegistrationComponent implements OnInit {
 
   btnRegistrujClicked(){
     console.log("Registuj se kliknuto!");
-    const ime: HTMLInputElement = (document.getElementById('input-ime') as HTMLInputElement);
-    const prezime: HTMLInputElement = (document.getElementById('input-prezime') as HTMLInputElement);
-    const email: HTMLInputElement = (document.getElementById('input-email') as HTMLInputElement);
-    const password: HTMLInputElement = (document.getElementById('input-password') as HTMLInputElement);
-    const sertifikat: HTMLInputElement = (document.getElementById('input-sertificate') as HTMLInputElement);
+
+    this.authService.postRegisteredUser()
+    .subscribe(users => {
+      console.log(users.access_token);
+      let payload=this.jwtHelper.decodeToken(users.access_token);
+      console.log("decoded:", payload)
+    });
+
+    // const ime: HTMLInputElement = (document.getElementById('input-ime') as HTMLInputElement);
+    // const prezime: HTMLInputElement = (document.getElementById('input-prezime') as HTMLInputElement);
+    // const email: HTMLInputElement = (document.getElementById('input-email') as HTMLInputElement);
+    // const password: HTMLInputElement = (document.getElementById('input-password') as HTMLInputElement);
+    // const sertifikat: HTMLInputElement = (document.getElementById('input-sertificate') as HTMLInputElement);
     
-    if(this.selectedRadio=="reziser"){
-      const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, sertifikat.value);
-      if(!provera){
-        this.errorMsg="Unesite sva input polja za registraciju!"
-      }
-      else{
-        console.log(ime.value, prezime.value, email.value,password.value, sertifikat.value);
-        this.errorMsg="";
-      }
-    }
-    else if(this.selectedRadio=="korisnik"){
-      const tip=this.selectedSelect;
-      const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, tip);
-      if(!provera){
-        this.errorMsg="Unesite sva input polja za registraciju!"
-      }
-      else{
-        console.log(ime.value, prezime.value, email.value,password.value, tip);
-        this.errorMsg="";
-      }
-    }
-    else this.errorMsg="Morate izabrati vrstu naloga(Režiser ili korisnik)!";
+    // if(this.selectedRadio=="reziser"){
+    //   const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, sertifikat.value);
+    //   if(!provera){
+    //     this.errorMsg="Unesite sva input polja za registraciju!"
+    //   }
+    //   else{
+    //     console.log(ime.value, prezime.value, email.value,password.value, sertifikat.value);
+    //     this.errorMsg="";
+    //   }
+    // }
+    // else if(this.selectedRadio=="korisnik"){
+    //   const tip=this.selectedSelect;
+    //   const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, tip);
+    //   if(!provera){
+    //     this.errorMsg="Unesite sva input polja za registraciju!"
+    //   }
+    //   else{
+    //     console.log(ime.value, prezime.value, email.value,password.value, tip);
+    //     this.errorMsg="";
+    //   }
+    // }
+    // else this.errorMsg="Morate izabrati vrstu naloga(Režiser ili korisnik)!";
 
   }
 
