@@ -71,8 +71,14 @@
     border-radius: 3px;
     background-color: rgb(184, 18, 18);
     color:white;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:18px;
 }
 
 .login-btn:hover{
     background-color: rgb(136, 17, 17);
+    transition-duration: 0.2;
 }

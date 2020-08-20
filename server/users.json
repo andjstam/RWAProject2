@@ -3,14 +3,17 @@
         {
             "id": 1,
             "email": "bruno@email.com",
-            "password": "bruno",
-            "role": "reziser"
+            "password": "bruno"
         },
         {
             "id": 2,
             "email": "nilson@email.com",
-            "password": "nilson",
-            "role": "korisnik"
+            "password": "nilson"
+        },
+        {
+            "id": 3,
+            "email": "andjela@gmail.com",
+            "password": "andjela"
         }
     ]
 } 

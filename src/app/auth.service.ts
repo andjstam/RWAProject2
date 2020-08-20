@@ -2,25 +2,46 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {RegUser} from './registration/reg-user'
+import {RegReziser} from './registration/reg-reziser'
+import {RegKorisnik} from './registration/reg-korisnk'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl="http://localhost:3000/korisnik";
+  private baseUrl="http://localhost:3000";
 
   constructor(private http: HttpClient) { }
 
   getAllUsers(): Observable<any>{
-    return this.http.get<Object[]>(this.baseUrl);
+    let url=this.baseUrl+"/users";
+    return this.http.get<Object[]>(url);
   }
 
-  postRegisteredUser(): Observable<any>{
-    const url="http://localhost:3000/auth/login";
-    let novi= new RegUser("bruno@email.com", "bruno")
-    return this.http.post<Object>(url, novi);
+  getUser(email: string):Observable<any>{
+    let url=this.baseUrl+`/users?email=${email}`;
+    return this.http.get<Object[]>(url);
   }
 
+  postRegisterUser(user:RegUser):Observable<any>{
+    let url=this.baseUrl+`/users`;
+    return this.http.post<Object[]>(url,user);
+  }
+
+  postRegisterDirector(reziser:RegReziser):Observable<any>{
+    let url=this.baseUrl+`/reziser`;
+    return this.http.post<Object[]>(url,reziser);
+  }
+
+  postRegisterKorisnik(korisnik: RegKorisnik): Observable<any>{
+    let url=this.baseUrl+`/korisnik`;
+    return this.http.post<Object[]>(url, korisnik);
+  }
+
+  checkIfUserValid(email: string, password: string): Observable<any>{
+    let url=this.baseUrl+`/users?email=${email}&&password=${password}`;
+    return this.http.get<Object[]>(url);
+  }
 
 }

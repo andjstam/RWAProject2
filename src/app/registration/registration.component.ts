@@ -3,6 +3,10 @@ import {AuthService} from '../auth.service';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { RegUser } from './reg-user';
+import { RegReziser } from './reg-reziser';
+import { registerLocaleData } from '@angular/common';
+import { RegKorisnik } from './reg-korisnk';
 
 @Component({
   selector: 'registration',
@@ -39,53 +43,78 @@ export class RegistrationComponent implements OnInit {
   }
 
   btnRegistrujClicked(){
-    console.log("Registuj se kliknuto!");
-
-    this.authService.postRegisteredUser()
-    .subscribe(users => {
-      console.log(users.access_token);
-      let payload=this.jwtHelper.decodeToken(users.access_token);
-      console.log("decoded:", payload)
-    });
-
-    // const ime: HTMLInputElement = (document.getElementById('input-ime') as HTMLInputElement);
-    // const prezime: HTMLInputElement = (document.getElementById('input-prezime') as HTMLInputElement);
-    // const email: HTMLInputElement = (document.getElementById('input-email') as HTMLInputElement);
-    // const password: HTMLInputElement = (document.getElementById('input-password') as HTMLInputElement);
-    // const sertifikat: HTMLInputElement = (document.getElementById('input-sertificate') as HTMLInputElement);
+    const ime: HTMLInputElement = (document.getElementById('input-ime') as HTMLInputElement);
+    const prezime: HTMLInputElement = (document.getElementById('input-prezime') as HTMLInputElement);
+    const email: HTMLInputElement = (document.getElementById('input-email') as HTMLInputElement);
+    const password: HTMLInputElement = (document.getElementById('input-password') as HTMLInputElement);
+    const sertifikat: HTMLInputElement = (document.getElementById('input-sertificate') as HTMLInputElement);
     
-    // if(this.selectedRadio=="reziser"){
-    //   const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, sertifikat.value);
-    //   if(!provera){
-    //     this.errorMsg="Unesite sva input polja za registraciju!"
-    //   }
-    //   else{
-    //     console.log(ime.value, prezime.value, email.value,password.value, sertifikat.value);
-    //     this.errorMsg="";
-    //   }
-    // }
-    // else if(this.selectedRadio=="korisnik"){
-    //   const tip=this.selectedSelect;
-    //   const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, tip);
-    //   if(!provera){
-    //     this.errorMsg="Unesite sva input polja za registraciju!"
-    //   }
-    //   else{
-    //     console.log(ime.value, prezime.value, email.value,password.value, tip);
-    //     this.errorMsg="";
-    //   }
-    // }
-    // else this.errorMsg="Morate izabrati vrstu naloga(Režiser ili korisnik)!";
+    if(this.selectedRadio=="reziser"){
+      const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, sertifikat.value);
+      if(!provera){
+        this.errorMsg="Unesite sva input polja za registraciju!"
+      }
+      else{
+        this.registerUser(email.value, password.value, this.selectedRadio);
+      
+        let regReziser=new RegReziser(ime.value,prezime.value, email.value,sertifikat.value);
+        this.authService.postRegisterDirector(regReziser)
+        .subscribe(value => {
+          alert(`Uspešno registrovan reziser ${regReziser.email}!`)
+          },
+          err => {
+          alert(`Dogodila se greška pri registrovanju rezisera, pokušajte ponovo.`)
+        })
+        ime.value='';
+        prezime.value='';
+        email.value='';
+        password.value='';
+        sertifikat.value='';
+      }
+    }
+    else if(this.selectedRadio=="korisnik"){
+      const tip=this.selectedSelect;
+      const provera=this.checkInput(ime.value, prezime.value, email.value,password.value, tip);
+      if(!provera){
+        this.errorMsg="Unesite sva input polja za registraciju!"
+      }
+      else{
+        this.registerUser(email.value, password.value, this.selectedRadio);
+        let regKorisnik= new RegKorisnik(ime.value, prezime.value,email.value, tip,"","","");
+        this.authService.postRegisterKorisnik(regKorisnik)
+        .subscribe(value => {
+          alert(`Uspešno registrovan ${tip} ${regKorisnik.email}!`)
+          },
+          err => {
+          alert(`Dogodila se greška pri registrovanju ${tip}, pokušajte ponovo.`)
+        })
+        ime.value='';
+        prezime.value='';
+        email.value='';
+        password.value='';
+      }
+    }
+    else this.errorMsg="Morate izabrati vrstu naloga-Režiser ili Korisnik!";
+  }
 
+  registerUser(email:string, password:string, role:string){
+    let regkorisnik=new RegUser(email, password, role)
+    this.authService.postRegisterUser(regkorisnik)
+    .subscribe(value => {
+      console.log(`Uspešno registrovan user ${regkorisnik.email}!`)
+      },
+      err => {
+      alert(`Dogodila se greška pri registrovanju rezisera, pokušajte ponovo.`)
+    })
   }
 
   checkInput(ime, prezime,email,password,sertifikat):boolean{
     if((ime === '' || ime == null || ime === undefined)  ||
-       (prezime === '' || prezime == null || prezime === undefined) || 
-       (password === '' || password == null || password === undefined ) || 
-       (email === '' || email == null || email === undefined) ||
-       (sertifikat === '' || sertifikat ==  null || sertifikat=== undefined || sertifikat===" "))
-       return false;
+        (prezime === '' || prezime == null || prezime === undefined) || 
+        (password === '' || password == null || password === undefined ) || 
+        (email === '' || email == null || email === undefined) ||
+        (sertifikat === '' || sertifikat ==  null || sertifikat=== undefined || sertifikat===" "))
+        return false;
     else return true;
-}
+  }
 }

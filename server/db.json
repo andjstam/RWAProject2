@@ -1,24 +1,37 @@
 {
-  
-  "reziser":[
+  "users": [
     {
-      "id": 1,
-      "ime": "Sebastian",
-      "prezime": "Eschweiler",
-      "email": "sebastian@codingthesmartway.com",
-      "sertifikat": ""
+      "email": "bjela@gmail.com",
+      "password": "bjela",
+      "role": "reziser",
+      "id": 1
+    },
+    {
+      "email": "jokic@gmail.com",
+      "password": "jokic",
+      "role": "korisnik",
+      "id": 2
     }
   ],
-  "korisnik":[
+  "reziser": [
     {
-      "id": 1,
-      "ime": "Andjela",
-      "prezime": "Stamenkovic",
-      "email": "andjstam@gmail.com",
-      "tip":"",
+      "ime": "Dragan",
+      "prezime": "Bjelogrlic",
+      "email": "bjela@gmail.com",
+      "sertifikat": "Akademija umetnosti Beograd",
+      "id": 1
+    }
+  ],
+  "korisnik": [
+    {
+      "ime": "Mihajlo",
+      "prezime": "Jokic",
+      "email": "jokic@gmail.com",
+      "tip": "snimatelj",
       "rejting": "",
       "status": "",
-      "radno_mesto": ""
+      "radno_mesto": "",
+      "id": 1
     }
   ]
 }

@@ -15,6 +15,7 @@
 .log-modal{
     width: 32%;
     min-height: 400px ;
+    min-width: 300px;
     padding: 10px;
     padding-bottom: 13px;
     border-radius: 4px;
@@ -124,4 +125,31 @@
 .example-full-width {
     margin: 5px;
     width: 100%;
+}
+
+.login-btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(197, 32, 32);
+    color:white;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:18px;
+}
+.login-btn:hover{
+    transition-duration: 0.2;
+    background-color: rgb(163, 18, 18);
+}
+
+.error-message{
+    font-size:20px;
+    color:rgb(204, 46, 46);
+    display: flex;
+    align-self: center;
+    padding-bottom:20px;
 }
