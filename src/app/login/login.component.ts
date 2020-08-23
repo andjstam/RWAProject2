@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { RegUser } from '../registration/reg-user';
+import { RegUser } from '../models/reg-user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   errorMsg="";
   logedUser: RegUser;
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +51,8 @@ export class LoginComponent implements OnInit {
           this.errorMsg="";
           this.logedUser= new RegUser(value[0].email, value[0].password, value[0].role);
           console.log(this.logedUser);
-          //router.nagivate..
+          console.log(this.logedUser.role);
+          this.router.navigate([`./${this.logedUser.role}`]);
         }
         else{
           this.errorMsg="Pogrešan email ili password!"

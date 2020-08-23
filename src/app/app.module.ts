@@ -17,25 +17,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
+import { ReziserComponent } from './reziser/reziser.component';
+import { KorisnikComponent } from './korisnik/korisnik.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ReziserComponent,
+    KorisnikComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    HttpClientModule,
     MatRadioModule,
     MatSelectModule,
   ],
