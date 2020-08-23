@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           this.logedUser= new RegUser(value[0].email, value[0].password, value[0].role);
           console.log(this.logedUser);
           console.log(this.logedUser.role);
-          this.router.navigate([`./${this.logedUser.role}`]);
+          //this.router.navigate([`./${this.logedUser.role}`]);
         }
         else{
           this.errorMsg="Pogrešan email ili password!"
