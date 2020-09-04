@@ -101,7 +101,7 @@ export class RegistrationComponent implements OnInit {
     let regkorisnik=new RegUser(email, password, role)
     this.authService.postRegisterUser(regkorisnik)
     .subscribe(value => {
-      console.log(`Uspešno registrovan user ${regkorisnik.email}!`)
+      //console.log(`Uspešno registrovan user ${regkorisnik.email}!`)
       },
       err => {
       alert(`Dogodila se greška pri registrovanju rezisera, pokušajte ponovo.`)
