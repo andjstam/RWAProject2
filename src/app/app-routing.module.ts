@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainPageComponent } from './main-page/main-page.component';
-import { ReziserComponent } from './reziser/reziser.component';
-import { KorisnikComponent } from './korisnik/korisnik.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { ReziserComponent } from './components/reziser/reziser.component';
+import { KorisnikComponent } from './components/korisnik/korisnik.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/mainPage', pathMatch: 'full'},

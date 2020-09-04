@@ -43,7 +43,7 @@
 
 .main-page-picture{
     align-self: end;
-    background-image: url("../../assets/movie1.jpg");
+    background-image: url("../../../assets/movie1.jpg");
     height: 420px;
     width: 560px;
     background-position: center; 

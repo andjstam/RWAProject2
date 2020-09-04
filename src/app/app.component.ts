@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ShowNavService} from './show-nav.service'
+import {ShowNavService} from './services/show-nav.service'
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,6 @@ export class AppComponent  {
 
   ngOnInit(){
     this.showNavService.flagCurrent.subscribe(flag => this.showNavButtons=flag);
-    console.log("VIde se dugmici: " + this.showNavButtons)
   }
 
 }

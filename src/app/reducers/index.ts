@@ -7,18 +7,23 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { RegUser } from '../models/reg-user';
-import { AuthActionTypes } from '../login/auth.actions';
+import { AuthActionTypes } from '../components/login/auth.actions';
 
 type AuthState = {
   loggedIn: boolean,
   user : RegUser
 }
 
+const initialAuthState : AuthState ={
+  loggedIn: false,
+  user: undefined
+}
+
 export interface AppState {
   auth: AuthState
 }
 
-function authReducer(state: AuthState, action): AuthState {
+function authReducer(state:AuthState = initialAuthState, action): AuthState {
   switch (action.type) {
 
     case AuthActionTypes.LoginAction:

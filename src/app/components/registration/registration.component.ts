@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth.service';
+import {AuthService} from '../../services/auth.service';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { RegUser } from '../models/reg-user';
-import { RegReziser } from '../models/reg-reziser';
+import { RegUser } from '../../models/reg-user';
+import { RegReziser } from '../../models/reg-reziser';
 import { registerLocaleData } from '@angular/common';
-import { RegKorisnik } from '../models/reg-korisnk';
+import { RegKorisnik } from '../../models/reg-korisnk';
 
 @Component({
   selector: 'registration',

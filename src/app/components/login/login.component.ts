@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { RegUser } from '../models/reg-user';
+import { AuthService } from '../../services/auth.service';
+import { RegUser } from '../../models/reg-user';
 import { Router } from '@angular/router';
-import { ShowNavService } from '../show-nav.service';
-import { AppState } from '../reducers';
+import { ShowNavService } from '../../services/show-nav.service';
+import { AppState } from '../../reducers';
 import { Store } from '@ngrx/store';
 import {Login} from './auth.actions'
 
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
           this.logedUser= new RegUser (value[0].email, value[0].password, value[0].role);
           console.log(this.logedUser);
           //bitno!
-          this.store.dispatch(new Login(value[0]));
+          this.store.dispatch(new Login({user : value[0] }));
           this.router.navigate([`./${this.logedUser.role}`]);
           this.showNavService.changeFlag(true);
         }
