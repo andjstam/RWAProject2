@@ -6,7 +6,7 @@
     min-height: 550px;
     align-self: center;
     justify-content: space-around;
-    background-color: #4d474ec9;
+    background-color: rgba(59, 89, 97, 0.966);
     margin:40px;
     border-radius: 4px;
 }
@@ -45,8 +45,9 @@
 
 .label-err{
     font-size:20px;
-    color:rgb(204, 46, 46);
+    color:rgb(241, 64, 64);
     display: flex;
     align-self: center;
     padding-bottom:20px;
 }
+

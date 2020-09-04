@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "RWAproject2"
+  "defaultProject": "RWAproject2",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

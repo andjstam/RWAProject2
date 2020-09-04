@@ -19,6 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
 import { ReziserComponent } from './reziser/reziser.component';
 import { KorisnikComponent } from './korisnik/korisnik.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { KorisnikComponent } from './korisnik/korisnik.component';
     MatButtonModule,
     MatRadioModule,
     MatSelectModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers:[
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

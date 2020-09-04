@@ -3,6 +3,10 @@ import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { RegUser } from '../models/reg-user';
 import { Router } from '@angular/router';
+import { ShowNavService } from '../show-nav.service';
+import { AppState } from '../reducers';
+import { Store } from '@ngrx/store';
+import {Login} from './auth.actions'
 
 @Component({
   selector: 'login',
@@ -16,28 +20,30 @@ export class LoginComponent implements OnInit {
   logedUser: RegUser;
 
   constructor(private authService:AuthService,
-              private router: Router) { }
+              private showNavService: ShowNavService,
+              private router: Router,
+              private store: Store<AppState> ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
+  @Output() cancelClicked: EventEmitter<any> =
+  new EventEmitter();
   
+  cancelLogIn(): void {
+    this.cancelClicked.emit();
+  }
+
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {
       return 'Morate uneti vrednost';
     }
     return this.email.hasError('email') ? 'Nevalidan email' : '';
   }
+
   getErrorMessagePassword() {
     if (this.password.hasError('required')) {
       return 'Morate uneti vrednost';
     }
-  }
-
-  @Output() cancelClicked: EventEmitter<any> =
-        new EventEmitter();
-
-  cancelLogIn(): void {
-      this.cancelClicked.emit();
   }
 
   btnLoginClicked(){
@@ -47,12 +53,15 @@ export class LoginComponent implements OnInit {
     if(provera){
       this.authService.checkIfUserValid(email.value, password.value)
       .subscribe(value=>{
+        console.log(value);
         if(value.length!=0){
           this.errorMsg="";
-          this.logedUser= new RegUser(value[0].email, value[0].password, value[0].role);
+          this.logedUser= new RegUser (value[0].email, value[0].password, value[0].role);
           console.log(this.logedUser);
-          console.log(this.logedUser.role);
-          //this.router.navigate([`./${this.logedUser.role}`]);
+          //bitno!
+          this.store.dispatch(new Login(value[0]));
+          this.router.navigate([`./${this.logedUser.role}`]);
+          this.showNavService.changeFlag(true);
         }
         else{
           this.errorMsg="Pogrešan email ili password!"

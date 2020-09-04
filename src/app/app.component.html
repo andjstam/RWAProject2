@@ -1,4 +1,9 @@
 <mat-toolbar class="nav-bar">
+  <div class="nav-buttons" *ngIf="showNavButtons">
+    <button class="nav-button">Početna</button>
+    <button class="nav-button">Profil</button>
+    <button class="nav-button">Logout</button>
+  </div>
   <img class="logo" src="../assets/camera.png">
   <span class="text-logo">direktorg.</span>
 </mat-toolbar>

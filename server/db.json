@@ -11,6 +11,12 @@
       "password": "jokic",
       "role": "korisnik",
       "id": 2
+    },
+    {
+      "email": "andjstam@gmail.com",
+      "password": "andjstam",
+      "role": "korisnik",
+      "id": 3
     }
   ],
   "reziser": [
@@ -32,6 +38,16 @@
       "status": "",
       "radno_mesto": "",
       "id": 1
+    },
+    {
+      "ime": "Andjela",
+      "prezime": "Stamenkovic",
+      "email": "andjstam@gmail.com",
+      "tip": "snimatelj",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 2
     }
   ]
 }

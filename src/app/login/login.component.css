@@ -97,7 +97,7 @@
     width: 160px;
     height: 45px;
     border-radius: 22px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     align-self: center;
     border-color: rgb(128, 44, 19);
@@ -152,4 +152,5 @@
     display: flex;
     align-self: center;
     padding-bottom:20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
