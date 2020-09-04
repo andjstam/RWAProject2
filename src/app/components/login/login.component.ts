@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 import { ShowNavService } from '../../services/show-nav.service';
 import { AppState } from '../../reducers';
 import { Store } from '@ngrx/store';
-import {Login} from './auth.actions'
+import { Login } from './auth.actions';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'login',
@@ -52,15 +54,17 @@ export class LoginComponent implements OnInit {
     const provera=this.checkInput(email.value, password.value);
     if(provera){
       this.authService.checkIfUserValid(email.value, password.value)
-      .subscribe(value=>{
-        console.log(value);
-        if(value.length!=0){
+      .pipe( 
+        map(array=> array[0])
+      ).subscribe(value=>{
+        if(value!=undefined){
           this.errorMsg="";
-          this.logedUser= new RegUser (value[0].email, value[0].password, value[0].role);
-          console.log(this.logedUser);
+          
+          // this.logedUser= new RegUser (value.email, value.password, value.role);
+          // console.log(this.logedUser);
           //bitno!
-          this.store.dispatch(new Login({user : value[0] }));
-          this.router.navigate([`./${this.logedUser.role}`]);
+          this.store.dispatch(new Login({user : value }));
+          this.router.navigate([`./${value.role}`]);
           this.showNavService.changeFlag(true);
         }
         else{

@@ -1,10 +1,12 @@
 export interface IRegUser {
+    id:string;
     email: string;
     password: string;
     role: string;
 }
 
 export class RegUser implements IRegUser{
+    id:string;
     email: string;
     password: string;
     role: string;

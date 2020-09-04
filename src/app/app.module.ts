@@ -23,6 +23,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import {AuthRoleGuard} from '../app/components/login/auth-role.guard'
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from '../app/components/login/auth.effects'
 
 @NgModule({
   declarations: [
@@ -49,10 +52,12 @@ import { environment } from '../environments/environment';
     MatSelectModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([AuthEffects]),
   ],
   providers:[
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService
+    JwtHelperService,
+    AuthRoleGuard
   ],
   bootstrap: [AppComponent]
 })

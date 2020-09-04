@@ -17,6 +17,78 @@
       "password": "andjstam",
       "role": "korisnik",
       "id": 3
+    },
+    {
+      "email": "mira@gmail.com",
+      "password": "mira",
+      "role": "reziser",
+      "id": 4
+    },
+    {
+      "email": "borislav@hotmail.com",
+      "password": "borislav",
+      "role": "reziser",
+      "id": 5
+    },
+    {
+      "email": "zdravko@gmail.com",
+      "password": "zdravko",
+      "role": "reziser",
+      "id": 6
+    },
+    {
+      "email": "spaske@gmail.com",
+      "password": "spaske",
+      "role": "korisnik",
+      "id": 7
+    },
+    {
+      "email": "biljanailic@gmail.com",
+      "password": "biljanailic",
+      "role": "korisnik",
+      "id": 8
+    },
+    {
+      "email": "mire@gmail.com",
+      "password": "mire",
+      "role": "korisnik",
+      "id": 9
+    },
+    {
+      "email": "djuricko@gmail.com",
+      "password": "djuricko",
+      "role": "korisnik",
+      "id": 10
+    },
+    {
+      "email": "anica@gmail.com",
+      "password": "anica",
+      "role": "korisnik",
+      "id": 11
+    },
+    {
+      "email": "brstina@gmail.com",
+      "password": "brstina",
+      "role": "korisnik",
+      "id": 12
+    },
+    {
+      "email": "sargin@gmail.com",
+      "password": "sargin",
+      "role": "korisnik",
+      "id": 13
+    },
+    {
+      "email": "dizdark@gmail.com",
+      "password": "dizdark",
+      "role": "korisnik",
+      "id": 14
+    },
+    {
+      "email": "bogdan@gmail.com",
+      "password": "bogdan",
+      "role": "korisnik",
+      "id": 15
     }
   ],
   "reziser": [
@@ -26,6 +98,27 @@
       "email": "bjela@gmail.com",
       "sertifikat": "Akademija umetnosti Beograd",
       "id": 1
+    },
+    {
+      "ime": "Mirjana",
+      "prezime": "Karanovic",
+      "email": "mira@gmail.com",
+      "sertifikat": "Univerzitet u Beogradu Akademija Umetnosti",
+      "id": 2
+    },
+    {
+      "ime": "Borislav",
+      "prezime": "Petrovic",
+      "email": "borislav@hotmail.com",
+      "sertifikat": "Univerzitet u Ljubljani, Akademija filmske umetnosti",
+      "id": 3
+    },
+    {
+      "ime": "Zdravko",
+      "prezime": "Sotra",
+      "email": "zdravko@gmail.com",
+      "sertifikat": "Akademija umetnosti, Univerzitet u Beogradu",
+      "id": 4
     }
   ],
   "korisnik": [
@@ -48,6 +141,96 @@
       "status": "",
       "radno_mesto": "",
       "id": 2
+    },
+    {
+      "ime": "Stefan",
+      "prezime": "Spasojevic",
+      "email": "spaske@gmail.com",
+      "tip": "statista",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 3
+    },
+    {
+      "ime": "Biljana",
+      "prezime": "Ilic",
+      "email": "biljanailic@gmail.com",
+      "tip": "glumac",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 4
+    },
+    {
+      "ime": "Mirko",
+      "prezime": "Petrovic",
+      "email": "mire@gmail.com",
+      "tip": "statista",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 5
+    },
+    {
+      "ime": "Nikola",
+      "prezime": "Djuricko",
+      "email": "djuricko@gmail.com",
+      "tip": "glumac",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 6
+    },
+    {
+      "ime": "Anica",
+      "prezime": "Dobra",
+      "email": "anica@gmail.com",
+      "tip": "glumac",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 7
+    },
+    {
+      "ime": "Branimir ",
+      "prezime": "Brstina",
+      "email": "brstina@gmail.com",
+      "tip": "glumac",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 8
+    },
+    {
+      "ime": "Nada",
+      "prezime": "Sargin",
+      "email": "sargin@gmail.com",
+      "tip": "glumac",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 9
+    },
+    {
+      "ime": "Ksenija",
+      "prezime": "Dizdar",
+      "email": "dizdark@gmail.com",
+      "tip": "snimatelj",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 10
+    },
+    {
+      "ime": "Bogdan",
+      "prezime": "Stamenkovic",
+      "email": "bogdan@gmail.com",
+      "tip": "snimatelj",
+      "rejting": "",
+      "status": "",
+      "radno_mesto": "",
+      "id": 11
     }
   ]
 }

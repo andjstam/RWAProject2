@@ -14,6 +14,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+
+  checkIfUserValid(email: string, password: string): Observable<any>{
+    let url=this.baseUrl+`/users?email=${email}&&password=${password}`;
+    return this.http.get<Object[]>(url);
+  }
+
   getAllUsers(): Observable<any>{
     let url=this.baseUrl+"/users";
     return this.http.get<Object[]>(url);
@@ -37,11 +43,6 @@ export class AuthService {
   postRegisterKorisnik(korisnik: RegKorisnik): Observable<any>{
     let url=this.baseUrl+`/korisnik`;
     return this.http.post<Object[]>(url, korisnik);
-  }
-
-  checkIfUserValid(email: string, password: string): Observable<any>{
-    let url=this.baseUrl+`/users?email=${email}&&password=${password}`;
-    return this.http.get<Object[]>(url);
   }
 
 }
