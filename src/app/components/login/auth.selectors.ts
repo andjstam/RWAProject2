@@ -1,13 +1,14 @@
 import {createSelector} from '@ngrx/store';
+import { RegUser } from 'src/app/models/reg-user';
 
-export const selectAuthState= state => state.auth;
+export const selectAuthState = state => state.auth;
 
 export const isLoggedIn = createSelector(
     selectAuthState,
     auth => auth.loggedIn
 );
 
-export const loggedUserRole = createSelector(
+export const selectLoggedUser = createSelector(
     selectAuthState,
-    auth => auth.user.role
+    auth => <RegUser>auth.user
 )

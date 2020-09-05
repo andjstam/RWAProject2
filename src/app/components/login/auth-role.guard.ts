@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {select, Store} from '@ngrx/store';
-import {isLoggedIn, loggedUserRole} from './auth.selectors';
+import {isLoggedIn, selectLoggedUser} from './auth.selectors';
 import {AppState} from '../../reducers'
 
 
@@ -20,20 +20,22 @@ export class AuthRoleGuard implements CanActivate {
       value => this.logged=value
     )
     if(this.logged){
-      this.store.select(loggedUserRole).subscribe(
-        role =>{
-          let expectedRole: string=route.data.role;
-          console.log(role==expectedRole);
-          console.log(role===expectedRole);
-          // if(!(role==expectedRole)){
-          //   this.router.navigate([`./${role}`]);
-          //   return false;
-          // }
-          // return true;
-        })
+        // this.store.select(selectLoggedUser).subscribe(
+        //   user =>{
+        //     let expectedRole: string=route.data.role;
+        //     console.log("iz stora: "+user.role)
+        //     console.log("ocekivano: "+expectedRole)
+        //     console.log(user.role===expectedRole);
+        //   if(user.role===expectedRole){
+        //     return true;
+        //   }
+        //   else{
+        //   this.router.navigate([`./${user.role}`]);
+        //   return false;
+        //   }
+        // })
     }
     this.router.navigate(['./mainPage']);
     return false;
-    
   }
 }

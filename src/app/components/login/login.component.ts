@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   email : FormControl= new FormControl('', [Validators.required, Validators.email]);
   password : FormControl= new FormControl('', [Validators.required]);
   errorMsg="";
-  logedUser: RegUser;
 
   constructor(private authService:AuthService,
               private showNavService: ShowNavService,
@@ -59,9 +58,6 @@ export class LoginComponent implements OnInit {
       ).subscribe(value=>{
         if(value!=undefined){
           this.errorMsg="";
-          
-          // this.logedUser= new RegUser (value.email, value.password, value.role);
-          // console.log(this.logedUser);
           //bitno!
           this.store.dispatch(new Login({user : value }));
           this.router.navigate([`./${value.role}`]);

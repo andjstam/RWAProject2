@@ -232,5 +232,14 @@
       "radno_mesto": "",
       "id": 11
     }
+  ],
+  "oglas":[
+    {
+      "id": 1,
+      "opis": "U pitanju je film taj i taj...",
+      "tip_korisnika": "glumac",
+      "broj_korisnika": 7,
+      "id_rezisera": 1
+    }
   ]
 }

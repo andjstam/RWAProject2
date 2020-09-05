@@ -1,7 +1,7 @@
 <mat-toolbar class="nav-bar">
   <div class="nav-buttons" *ngIf="showNavButtons">
-    <button class="nav-button">Početna</button>
-    <button class="nav-button">Profil</button>
+    <button class="nav-button" (click)="pocetnaClicked();">Početna</button>
+    <button class="nav-button" (click)="profilClicked();">Profil</button>
     <button class="nav-button" (click)="logoutClicked();">Logout</button>
   </div>
   <img class="logo" src="../assets/camera.png">
@@ -11,5 +11,5 @@
 <router-outlet></router-outlet>
 
 <footer class="footer">
-  <label>Copyright@2020</label>
+  <label>copyright@2020</label>
 </footer>

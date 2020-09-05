@@ -1,0 +1,27 @@
+<div class='modalBackground'>
+    <div class='modal'>
+        <div class="modal-header">
+            <span (click)="cancelModal()" class="cancel">&times;</span>
+        </div>
+        <div class="log-modal-main">
+            <mat-label class="label">Unesite podatke o novom oglasu.</mat-label>
+
+            <mat-form-field class=" polje-za-uneti">
+                <mat-label>Unesite opis oglasa</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field>
+
+            <mat-form-field appearance="fill" class="example-full-width polje-za-uneti">
+                <mat-label>Unesite tip potrebnih korisnika  </mat-label>
+                <input matInput  id="tip-korisnika-input" type="text" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="example-full-width polje-za-uneti">
+                <mat-label>Unesite broj potrebnih korisnika</mat-label>
+                <input matInput  id="broj-korisnika-input" type="number" required>
+            </mat-form-field>
+             
+            <button class="login-btn"  type="button">Sačuvaj</button>
+        </div>
+    </div>
+</div> 

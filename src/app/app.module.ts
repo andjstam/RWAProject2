@@ -25,7 +25,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {AuthRoleGuard} from '../app/components/login/auth-role.guard'
 import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from '../app/components/login/auth.effects'
+import { AuthEffects } from '../app/components/login/auth.effects';
+import { PretragaKorisniciComponent } from './components/pretraga-korisnici/pretraga-korisnici.component';
+import { ProfilReziserComponent } from './components/profil-reziser/profil-reziser.component';
+import { PretragaOglasiComponent } from './components/pretraga-oglasi/pretraga-oglasi.component';
+import { ProfilKorisnikComponent } from './components/profil-korisnik/profil-korisnik.component';
+import { CreateOglasComponent } from './components/create-oglas/create-oglas.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { AuthEffects } from '../app/components/login/auth.effects'
     LoginComponent,
     RegistrationComponent,
     ReziserComponent,
-    KorisnikComponent
+    KorisnikComponent,
+    PretragaKorisniciComponent,
+    ProfilReziserComponent,
+    PretragaOglasiComponent,
+    ProfilKorisnikComponent,
+    CreateOglasComponent
   ],
   imports: [
     BrowserModule,

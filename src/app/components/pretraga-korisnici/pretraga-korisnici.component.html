@@ -1,0 +1,26 @@
+<div class="body">
+    <div class="okvir">
+        <div class="pretraga" >
+            <div class="searchDiv">
+                <input type="text" class="search form-control" placeholder="Pretrazite korisnike po imenu i prezimenu" [(ngModel)]='inputFilter'/>
+                <label> Filtrirano po: {{ inputFilter }}</label>
+            </div>
+            <table class="table">
+                <thead class="thead-dark prikaz"  *ngIf='nizKorisnik && nizKorisnik.length'>
+                  <tr>
+                    <th scope="col">Ime</th>
+                    <th scope="col">Prezime</th>
+                    <th scope="col">Infomracije</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let kor of filteredNizKorisnik" >
+                    <td>{{ kor.ime }}</td>
+                    <td>{{ kor.prezime }}</td>
+                    <td>{{ kor.tip }}</td>
+                </tbody>
+              </table>
+        </div>
+        
+    </div>
+</div>
