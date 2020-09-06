@@ -10,8 +10,7 @@ import { ReziserService} from '../../services/reziser.service'
 export class PretragaKorisniciComponent implements OnInit {
   nizKorisnik: RegKorisnik[]=[];
   filteredNizKorisnik: RegKorisnik[]=[];
-  infoTrudnica :string='';
-
+ 
   _inputFilter: string;
   get inputFilter(){
     return this._inputFilter;

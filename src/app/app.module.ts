@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card'; 
 
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginComponent } from './components/login/login.component'; 
@@ -23,9 +24,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import {AuthRoleGuard} from '../app/components/login/auth-role.guard'
+import {AuthRoleGuard} from './store/auth-role.guard'
 import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from '../app/components/login/auth.effects';
+import { AuthEffects } from './store/effects/auth.effects'
 import { PretragaKorisniciComponent } from './components/pretraga-korisnici/pretraga-korisnici.component';
 import { ProfilReziserComponent } from './components/profil-reziser/profil-reziser.component';
 import { PretragaOglasiComponent } from './components/pretraga-oglasi/pretraga-oglasi.component';
@@ -60,6 +61,7 @@ import { CreateOglasComponent } from './components/create-oglas/create-oglas.com
     MatButtonModule,
     MatRadioModule,
     MatSelectModule,
+    MatCardModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AuthEffects]),

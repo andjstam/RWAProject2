@@ -2,25 +2,27 @@
     <div class="okvir">
         <div class="pretraga" >
             <div class="searchDiv">
-                <input type="text" class="search form-control" placeholder="Pretrazite korisnike po imenu i prezimenu" [(ngModel)]='inputFilter'/>
-                <label> Filtrirano po: {{ inputFilter }}</label>
+                <input type="text" class="search form-control" placeholder="Pretrazite korisnike po imenu, prezimenu i tipu" [(ngModel)]='inputFilter'/>
+                <label class="filter-label"> Filtrirano po: {{ inputFilter }}</label>
             </div>
-            <table class="table">
-                <thead class="thead-dark prikaz"  *ngIf='nizKorisnik && nizKorisnik.length'>
-                  <tr>
-                    <th scope="col">Ime</th>
-                    <th scope="col">Prezime</th>
-                    <th scope="col">Infomracije</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let kor of filteredNizKorisnik" >
-                    <td>{{ kor.ime }}</td>
-                    <td>{{ kor.prezime }}</td>
-                    <td>{{ kor.tip }}</td>
-                </tbody>
-              </table>
-        </div>
-        
+            <div class="korisnici" *ngIf='nizKorisnik && nizKorisnik.length'>
+              <div *ngFor="let kor of filteredNizKorisnik">
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{ kor.ime }} {{ kor.prezime }}</mat-card-title>
+                    <mat-card-subtitle>{{ kor.tip }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+    
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>    
+        </div> 
     </div>
 </div>

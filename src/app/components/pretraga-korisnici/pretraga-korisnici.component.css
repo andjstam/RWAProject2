@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
 
 }
 .okvir{
@@ -10,7 +9,7 @@
     background-color: rgba(28, 60, 68, 0.966);
     border-radius:5px;
     width: 70%;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -27,11 +26,35 @@
 }
 
 .search{
+    border-radius:3px;
     margin:10px;
     padding:10px;
     height: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:20px;
 }
 
-tr:hover { 
-    background: rgb(231, 207, 177); 
+.filter-label{
+    margin-left:20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.781);
 }
+
+.korisnici{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.example-card {
+    background-color:rgb(184, 157, 153);
+    margin:10px;
+    width: 280px;
+}
+
+.example-header-image {
+    background-image: url('../../../assets/korisnik-profile.jpeg');
+    background-size: cover;
+  }
+

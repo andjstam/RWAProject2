@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ReziserComponent } from './components/reziser/reziser.component';
 import { KorisnikComponent } from './components/korisnik/korisnik.component';
-import { AuthRoleGuard } from './components/login/auth-role.guard';
+import { AuthRoleGuard } from './store/auth-role.guard';
 import { PretragaKorisniciComponent } from './components/pretraga-korisnici/pretraga-korisnici.component';
 import { ProfilReziserComponent } from './components/profil-reziser/profil-reziser.component';
 import { ProfilKorisnikComponent } from './components/profil-korisnik/profil-korisnik.component';

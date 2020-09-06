@@ -236,6 +236,7 @@
   "oglas":[
     {
       "id": 1,
+      "naziv": "Orlovi rano lete",
       "opis": "U pitanju je film taj i taj...",
       "tip_korisnika": "glumac",
       "broj_korisnika": 7,

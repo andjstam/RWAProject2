@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { RegUser } from 'src/app/models/reg-user';
-import { AuthActionTypes, AuthActions } from './auth.actions';
+import { AuthActionTypes, AuthActions } from '../actions/auth.actions';
 
 
 export const authFeatureKey = 'auth';

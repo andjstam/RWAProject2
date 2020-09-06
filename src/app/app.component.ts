@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {ShowNavService} from './services/show-nav.service'
 import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
-import { Logout } from './components/login/auth.actions';
+import { Logout } from './store/actions/auth.actions';
 import { Router } from '@angular/router';
-import { selectLoggedUser } from './components/login/auth.selectors';
+import { selectLoggedUser } from './store/auth.selectors';
 import {filter,} from 'rxjs/operators'
 
 @Component({

@@ -45,3 +45,7 @@
 .nav-button:hover{
     color: salmon;
 }
+
+.ruter{
+    min-width: 1000px;
+}

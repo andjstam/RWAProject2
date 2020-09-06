@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
-import { selectLoggedUser } from '../login/auth.selectors';
+import { selectLoggedUser } from '../../store/auth.selectors';
 import { filter } from 'rxjs/operators';
 
 @Component({

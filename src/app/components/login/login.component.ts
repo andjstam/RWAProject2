@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { ShowNavService } from '../../services/show-nav.service';
 import { AppState } from '../../reducers';
 import { Store } from '@ngrx/store';
-import { Login } from './auth.actions';
+import { Login } from '../../store/actions/auth.actions';
 import { map } from 'rxjs/operators';
 
 
