@@ -1,5 +1,5 @@
-import { Action } from '@ngrx/store';
-import { RegUser } from 'src/app/models/reg-user';
+import { Action, createSelector } from '@ngrx/store';
+import { LoggedUser} from 'src/app/models/logged-user';
 import { AuthActionTypes, AuthActions } from '../actions/auth.actions';
 
 
@@ -7,7 +7,7 @@ export const authFeatureKey = 'auth';
 
 export interface AuthState {
   loggedIn: boolean,
-  user : RegUser
+  user : LoggedUser
 }
 
 export const initialState: AuthState = {
@@ -33,3 +33,20 @@ export function authReducer(state = initialState, action: AuthActions): AuthStat
       return state;
   }
 }
+
+export const selectAuthState = state => state.auth;
+
+export const isLoggedIn = createSelector(
+    selectAuthState,
+    auth => auth.loggedIn
+);
+
+export const selectLoggedUser = createSelector(
+    selectAuthState,
+    auth => <LoggedUser>auth.user
+)
+
+export const selectUserId= createSelector(
+    selectLoggedUser,
+    user => user.id
+)

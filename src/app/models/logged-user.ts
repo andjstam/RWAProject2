@@ -1,11 +1,11 @@
-export interface IRegUser {
+export interface ILoggedUser {
     id:string;
     email: string;
     password: string;
     role: string;
 }
 
-export class RegUser implements IRegUser{
+export class LoggedUser implements ILoggedUser{
     id:string;
     email: string;
     password: string;

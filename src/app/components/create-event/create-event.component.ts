@@ -2,10 +2,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'create-oglas',
-  templateUrl: './create-oglas.component.html',
-  styleUrls: ['./create-oglas.component.css']
+  templateUrl: './create-event.component.html',
+  styleUrls: ['./create-event.component.css']
 })
-export class CreateOglasComponent implements OnInit {
+export class CreateEventComponent implements OnInit {
 
   constructor() { }
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PretragaKorisniciComponent } from './pretraga-korisnici.component';
+import { DirectorComponent } from './director.component';
 
-describe('PretragaKorisniciComponent', () => {
-  let component: PretragaKorisniciComponent;
-  let fixture: ComponentFixture<PretragaKorisniciComponent>;
+describe('ReziserComponent', () => {
+  let component: DirectorComponent;
+  let fixture: ComponentFixture<DirectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PretragaKorisniciComponent ]
+      declarations: [ DirectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PretragaKorisniciComponent);
+    fixture = TestBed.createComponent(DirectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

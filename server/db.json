@@ -1,5 +1,5 @@
 {
-  "users": [
+  "loggedUsers": [
     {
       "email": "bjela@gmail.com",
       "password": "bjela",
@@ -91,156 +91,165 @@
       "id": 15
     }
   ],
-  "reziser": [
+  "director": [
     {
-      "ime": "Dragan",
-      "prezime": "Bjelogrlic",
+      "name": "Dragan",
+      "surname": "Bjelogrlic",
       "email": "bjela@gmail.com",
-      "sertifikat": "Akademija umetnosti Beograd",
+      "sertificate": "Akademija umetnosti Beograd",
       "id": 1
     },
     {
-      "ime": "Mirjana",
-      "prezime": "Karanovic",
+      "name": "Mirjana",
+      "surname": "Karanovic",
       "email": "mira@gmail.com",
-      "sertifikat": "Univerzitet u Beogradu Akademija Umetnosti",
+      "sertificate": "Univerzitet u Beogradu Akademija Umetnosti",
       "id": 2
     },
     {
-      "ime": "Borislav",
-      "prezime": "Petrovic",
+      "name": "Borislav",
+      "surname": "Petrovic",
       "email": "borislav@hotmail.com",
-      "sertifikat": "Univerzitet u Ljubljani, Akademija filmske umetnosti",
+      "sertificate": "Univerzitet u Ljubljani, Akademija filmske umetnosti",
       "id": 3
     },
     {
-      "ime": "Zdravko",
-      "prezime": "Sotra",
+      "name": "Zdravko",
+      "surname": "Sotra",
       "email": "zdravko@gmail.com",
-      "sertifikat": "Akademija umetnosti, Univerzitet u Beogradu",
+      "sertificate": "Akademija umetnosti, Univerzitet u Beogradu",
       "id": 4
     }
   ],
-  "korisnik": [
+  "user": [
     {
-      "ime": "Mihajlo",
-      "prezime": "Jokic",
+      "name": "Mihajlo",
+      "surname": "Jokic",
       "email": "jokic@gmail.com",
-      "tip": "snimatelj",
-      "rejting": "",
+      "type": "snimatelj",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 1
     },
     {
-      "ime": "Andjela",
-      "prezime": "Stamenkovic",
+      "name": "Andjela",
+      "surname": "Stamenkovic",
       "email": "andjstam@gmail.com",
-      "tip": "snimatelj",
-      "rejting": "",
+      "type": "snimatelj",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 2
     },
     {
-      "ime": "Stefan",
-      "prezime": "Spasojevic",
+      "name": "Stefan",
+      "surname": "Spasojevic",
       "email": "spaske@gmail.com",
-      "tip": "statista",
-      "rejting": "",
+      "type": "glumac",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 3
     },
     {
-      "ime": "Biljana",
-      "prezime": "Ilic",
+      "name": "Biljana",
+      "surname": "Ilic",
       "email": "biljanailic@gmail.com",
-      "tip": "glumac",
-      "rejting": "",
+      "type": "statista",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 4
     },
     {
-      "ime": "Mirko",
-      "prezime": "Petrovic",
+      "name": "Mirko",
+      "surname": "Mihajlovic",
       "email": "mire@gmail.com",
-      "tip": "statista",
-      "rejting": "",
+      "type": "statista",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 5
     },
     {
-      "ime": "Nikola",
-      "prezime": "Djuricko",
+      "name": "Nikola",
+      "surname": "Djuricko",
       "email": "djuricko@gmail.com",
-      "tip": "glumac",
-      "rejting": "",
+      "type": "glumac",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 6
     },
     {
-      "ime": "Anica",
-      "prezime": "Dobra",
+      "name": "Anica",
+      "surname": "Dobra",
       "email": "anica@gmail.com",
-      "tip": "glumac",
-      "rejting": "",
+      "type": "glumac",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 7
     },
     {
-      "ime": "Branimir ",
-      "prezime": "Brstina",
+      "name": "Branimir ",
+      "surname": "Brstina",
       "email": "brstina@gmail.com",
-      "tip": "glumac",
-      "rejting": "",
+      "type": "glumac",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 8
     },
     {
-      "ime": "Nada",
-      "prezime": "Sargin",
+      "name": "Nada",
+      "surname": "Sargin",
       "email": "sargin@gmail.com",
-      "tip": "glumac",
-      "rejting": "",
+      "type": "glumac",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 9
     },
     {
-      "ime": "Ksenija",
-      "prezime": "Dizdar",
+      "name": "Ksenija",
+      "surname": "Dizdar",
       "email": "dizdark@gmail.com",
-      "tip": "snimatelj",
-      "rejting": "",
+      "type": "snimatelj",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 10
     },
     {
-      "ime": "Bogdan",
-      "prezime": "Stamenkovic",
+      "name": "Bogdan",
+      "surname": "Stamenkovic",
       "email": "bogdan@gmail.com",
-      "tip": "snimatelj",
-      "rejting": "",
+      "type": "snimatelj",
+      "grade": "",
       "status": "",
-      "radno_mesto": "",
+      "workPlace": "",
       "id": 11
     }
   ],
-  "oglas":[
+  "event":[
     {
       "id": 1,
-      "naziv": "Orlovi rano lete",
-      "opis": "U pitanju je film taj i taj...",
-      "tip_korisnika": "glumac",
-      "broj_korisnika": 7,
-      "id_rezisera": 1
+      "name": "Orlovi rano lete",
+      "description": "U pitanju je film taj i taj...",
+      "userType": "glumac",
+      "userCount": 7,
+      "directorId": 1
+    },
+    {
+      "name": "Promena",
+      "description": "Test",
+      "userType": "Glumac",
+      "userCount": 1,
+      "directorId": 1,
+      "id": 2
     }
   ]
+  
 }

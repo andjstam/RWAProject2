@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class KorisnikService {
+export class UserService {
   private baseUrl="http://localhost:3000";
 
   constructor(private http: HttpClient) { }
 
   getAllEvents(): Observable<any>{
-    let url=this.baseUrl+"/oglas";
+    let url=this.baseUrl+"/event";
     return this.http.get<Object[]>(url);
   }
 }

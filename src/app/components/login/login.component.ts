@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { RegUser } from '../../models/reg-user';
+import { LoggedUser } from '../../models/logged-user';
 import { Router } from '@angular/router';
 import { ShowNavService } from '../../services/show-nav.service';
-import { AppState } from '../../reducers';
+import { AppState } from '../../store/reducers';
 import { Store } from '@ngrx/store';
 import { Login } from '../../store/actions/auth.actions';
 import { map } from 'rxjs/operators';
@@ -58,7 +58,6 @@ export class LoginComponent implements OnInit {
       ).subscribe(value=>{
         if(value!=undefined){
           this.errorMsg="";
-          //bitno!
           this.store.dispatch(new Login({user : value }));
           this.router.navigate([`./${value.role}`]);
           this.showNavService.changeFlag(true);

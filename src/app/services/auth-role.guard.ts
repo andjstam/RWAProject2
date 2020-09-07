@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {select, Store} from '@ngrx/store';
-import {isLoggedIn, selectLoggedUser} from './auth.selectors';
-import {AppState} from '../reducers'
+import {isLoggedIn, selectLoggedUser} from '../store/reducers/auth.reducer';
+import {AppState} from '../store/reducers'
 
 
 
@@ -34,6 +34,7 @@ export class AuthRoleGuard implements CanActivate {
         //   return false;
         //   }
         // })
+        return true;
     }
     this.router.navigate(['./mainPage']);
     return false;

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/reducers';
-import { selectLoggedUser } from '../../store/auth.selectors';
+import { AppState } from 'src/app/store/reducers';
+import { selectLoggedUser } from '../../store/reducers/auth.reducer';
 import { filter } from 'rxjs/operators';
+import { NeedDirectorInfo } from 'src/app/store/actions/director.actions';
+import { selectDirectorInfo } from 'src/app/store/reducers/director.reducer';
 
 @Component({
   selector: 'app-profil-reziser',
@@ -11,17 +13,35 @@ import { filter } from 'rxjs/operators';
 })
 export class ProfilReziserComponent implements OnInit {
   displayOglasModal:boolean;
+  name: string;
+  email: string;
+  sertificate: string;
+
   user$=this.store.pipe(
     select(selectLoggedUser),
     filter(val => val !== undefined)
   );
+
+  director$=this.store.pipe(
+    select(selectDirectorInfo),
+    filter(val => val !== undefined)
+  );
+  //kako prikazati podatke na strani???
+
   constructor(private store: Store<AppState>) { 
     this.displayOglasModal=false;
   }
 
   ngOnInit(): void {
-    //da nadje rezisera sa tim id-jem i da ga sacuva u store
-    //onda tu imamo sve informacije koje su nam potrebne o reziseru
+    this.user$.subscribe(
+      user => this.store.dispatch(new NeedDirectorInfo(user.email))
+    )
+    this.director$.subscribe( director =>{
+        this.name=director.name + " "+ director.surname;
+        this.email=director.email;
+        this.sertificate=director.sertificate;
+     }
+    )
   }
 
   showOglasModal(){

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Oglas } from 'src/app/models/oglas';
-import { KorisnikService } from '../../services/korisnik.service'
+import { Event } from 'src/app/models/event';
+import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'app-pretraga-oglasi',
@@ -8,8 +8,8 @@ import { KorisnikService } from '../../services/korisnik.service'
   styleUrls: ['./pretraga-oglasi.component.css']
 })
 export class PretragaOglasiComponent implements OnInit {
-  nizOglas: Oglas[]=[];
-  filteredNizOglas: Oglas[]=[];
+  nizOglas: Event[]=[];
+  filteredNizOglas: Event[]=[];
 
   _inputFilter: string;
   get inputFilter(){
@@ -20,15 +20,15 @@ export class PretragaOglasiComponent implements OnInit {
     this.filteredNizOglas= this.inputFilter ? this.filtriraj(this.inputFilter) : this.nizOglas;
   }
 
-  constructor(private korisnikService: KorisnikService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.korisnikService.getAllEvents()
+    this.userService.getAllEvents()
     .subscribe(
-      korisnici =>{
-        korisnici.forEach(kr => {
-          var nova=new Oglas(kr.id, kr.naziv, kr.opis, kr.tip_korisnika, kr.broj_korisnika, kr.id_rezisera);
-          this.nizOglas.push(nova);
+      events =>{
+        events.forEach(ev => {
+          var newEvent=new Event(ev.id, ev.name, ev.description, ev.userType, ev.userCount, ev.directorId);
+          this.nizOglas.push(newEvent);
         },
         err => {
           console.log(err.message);
@@ -40,10 +40,10 @@ export class PretragaOglasiComponent implements OnInit {
       console.log('on init end');
   }
 
-  filtriraj(filterBy: string): Oglas[]{
+  filtriraj(filterBy: string): Event[]{
     filterBy=filterBy.toLocaleLowerCase();
-    return this.nizOglas.filter( (korisnik: Oglas)=>
-        korisnik.tip_korisnika.toLocaleLowerCase().indexOf(filterBy)!==-1);
+    return this.nizOglas.filter( (korisnik: Event)=>
+        korisnik.userType.toLocaleLowerCase().indexOf(filterBy)!==-1);
   }
 
 }

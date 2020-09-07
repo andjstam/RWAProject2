@@ -3,10 +3,10 @@ import {AuthService} from '../../services/auth.service';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { RegUser } from '../../models/reg-user';
-import { RegReziser } from '../../models/reg-reziser';
+import { LoggedUser } from '../../models/logged-user';
+import { Director } from '../../models/director';
 import { registerLocaleData } from '@angular/common';
-import { RegKorisnik } from '../../models/reg-korisnk';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'registration',
@@ -57,7 +57,7 @@ export class RegistrationComponent implements OnInit {
       else{
         this.registerUser(email.value, password.value, this.selectedRadio);
       
-        let regReziser=new RegReziser(ime.value,prezime.value, email.value,sertifikat.value);
+        let regReziser=new Director(ime.value,prezime.value, email.value,sertifikat.value);
         this.authService.postRegisterDirector(regReziser)
         .subscribe(value => {
           alert(`Uspešno registrovan reziser ${regReziser.email}!`)
@@ -80,7 +80,7 @@ export class RegistrationComponent implements OnInit {
       }
       else{
         this.registerUser(email.value, password.value, this.selectedRadio);
-        let regKorisnik= new RegKorisnik(ime.value, prezime.value,email.value, tip,"","","");
+        let regKorisnik= new User(ime.value, prezime.value,email.value, tip,"","","");
         this.authService.postRegisterKorisnik(regKorisnik)
         .subscribe(value => {
           alert(`Uspešno registrovan ${tip} ${regKorisnik.email}!`)
@@ -98,7 +98,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser(email:string, password:string, role:string){
-    let regkorisnik=new RegUser(email, password, role)
+    let regkorisnik=new LoggedUser(email, password, role)
     this.authService.postRegisterUser(regkorisnik)
     .subscribe(value => {
       //console.log(`Uspešno registrovan user ${regkorisnik.email}!`)

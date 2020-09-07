@@ -18,20 +18,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
-import { ReziserComponent } from './components/reziser/reziser.component';
-import { KorisnikComponent } from './components/korisnik/korisnik.component';
+import { DirectorComponent } from './components/director/director.component';
+import { UserComponent } from './components/user/user.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import {AuthRoleGuard} from './store/auth-role.guard'
+import { AuthRoleGuard } from './services/auth-role.guard'
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects'
-import { PretragaKorisniciComponent } from './components/pretraga-korisnici/pretraga-korisnici.component';
+import { DirectorEffects} from './store/effects/director.effects'
+import { SearchUsersComponent } from './components/search-users/search-users.component';
 import { ProfilReziserComponent } from './components/profil-reziser/profil-reziser.component';
 import { PretragaOglasiComponent } from './components/pretraga-oglasi/pretraga-oglasi.component';
 import { ProfilKorisnikComponent } from './components/profil-korisnik/profil-korisnik.component';
-import { CreateOglasComponent } from './components/create-oglas/create-oglas.component'
+import { CreateEventComponent } from './components/create-event/create-event.component'
 
 @NgModule({
   declarations: [
@@ -39,13 +40,13 @@ import { CreateOglasComponent } from './components/create-oglas/create-oglas.com
     MainPageComponent,
     LoginComponent,
     RegistrationComponent,
-    ReziserComponent,
-    KorisnikComponent,
-    PretragaKorisniciComponent,
+    DirectorComponent,
+    UserComponent,
+    SearchUsersComponent,
     ProfilReziserComponent,
     PretragaOglasiComponent,
     ProfilKorisnikComponent,
-    CreateOglasComponent
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,10 @@ import { CreateOglasComponent } from './components/create-oglas/create-oglas.com
     MatCardModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, DirectorEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   providers:[
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
