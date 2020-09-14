@@ -233,7 +233,7 @@
       "id": 11
     }
   ],
-  "event":[
+  "event": [
     {
       "id": 1,
       "name": "Orlovi rano lete",
@@ -249,7 +249,30 @@
       "userCount": 1,
       "directorId": 1,
       "id": 2
+    },
+    {
+      "name": "Duze od veka traje dan",
+      "description": "Sovjetska drzava, Sibir. Zeleznicka stanica. Covek umire.",
+      "userType": "statista",
+      "userCount": 8,
+      "directorId": 4,
+      "id": 4
+    },
+    {
+      "name": "Treba da pricamo o Tomu",
+      "description": "Decak sa disleksickim poremecajem",
+      "userType": "glumac",
+      "userCount": 8,
+      "directorId": 4,
+      "id": 5
+    },
+    {
+      "name": "dadad",
+      "description": "dada",
+      "userType": "snimatelj",
+      "userCount": 45,
+      "directorId": 1,
+      "id": 6
     }
   ]
-  
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilReziserComponent } from './profil-reziser.component';
+import { SearchEventsComponent } from './search-events.component';
 
-describe('ProfilReziserComponent', () => {
-  let component: ProfilReziserComponent;
-  let fixture: ComponentFixture<ProfilReziserComponent>;
+describe('PretragaOglasiComponent', () => {
+  let component: SearchEventsComponent;
+  let fixture: ComponentFixture<SearchEventsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilReziserComponent ]
+      declarations: [ SearchEventsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilReziserComponent);
+    fixture = TestBed.createComponent(SearchEventsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

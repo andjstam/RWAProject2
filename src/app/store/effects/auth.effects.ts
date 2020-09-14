@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Actions, Effect, ofType, createEffect} from '@ngrx/effects';
 import {AuthActionTypes, Login, Logout} from '../actions/auth.actions';
-import {tap, map} from 'rxjs/operators';
+import {tap, map, switchMap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {defer, of} from 'rxjs';
 import { ShowNavService } from '../../services/show-nav.service';
-import { DirectorActionTypes } from '../actions/director.actions';
+import { DeleteDirectorInfo, DirectorActionTypes } from '../actions/director.actions';
+import { DeleteAllEvents, EventActionTypes } from '../actions/event.actions';
 
 
 @Injectable()
@@ -21,12 +22,15 @@ export class AuthEffects {
 
   logout$ = createEffect(() => this.actions$.pipe(
     ofType<Logout>(AuthActionTypes.LogoutAction),
-    map(() => ({ type: DirectorActionTypes.DELETE_INFO_ACTION})),
+    switchMap(()=> [
+      new DeleteAllEvents(),
+      new DeleteDirectorInfo()
+    ]),
+    // map(() => ({ type: DirectorActionTypes.DELETE_INFO_ACTION})),
+    // map(() => ({ type: EventActionTypes.DELETE_ALL_EVENTS})),
     tap(() => {
-
       localStorage.removeItem("user");
       this.router.navigateByUrl('/login');
-
     }))
   );
 

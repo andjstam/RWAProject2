@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from './store/reducers';
 import { Logout } from './store/actions/auth.actions';
 import { Router } from '@angular/router';
-import { selectLoggedUser } from './store/reducers/auth.reducer';
+import { selectLoggedUser } from './store/selectors/auth.selectors';
 import {filter,} from 'rxjs/operators'
 
 @Component({

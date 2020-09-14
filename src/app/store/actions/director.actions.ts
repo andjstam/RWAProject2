@@ -20,6 +20,7 @@ export class GetDirectorInfo implements Action {
 
 export class DeleteDirectorInfo implements Action {
     readonly type = DirectorActionTypes.DELETE_INFO_ACTION;
+    constructor () {}
 }
 
 

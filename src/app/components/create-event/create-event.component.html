@@ -6,22 +6,31 @@
         <div class="log-modal-main">
             <mat-label class="label">Unesite podatke o novom oglasu.</mat-label>
 
-            <mat-form-field class=" polje-za-uneti">
-                <mat-label>Unesite opis oglasa</mat-label>
-                <textarea matInput></textarea>
-              </mat-form-field>
+            <mat-form-field class="polje-za-uneti" required>
+                <mat-label>Unesite naziv oglasa</mat-label>
+                <input  matInput [(ngModel)]="event.name" required>
+            </mat-form-field>
 
-            <mat-form-field appearance="fill" class="example-full-width polje-za-uneti">
-                <mat-label>Unesite tip potrebnih korisnika  </mat-label>
-                <input matInput  id="tip-korisnika-input" type="text" required>
+            <mat-form-field class="polje-za-uneti">
+                <mat-label>Unesite opis oglasa</mat-label>
+                <textarea matInput [(ngModel)]="event.description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field  class="polje-za-uneti" >
+                <mat-label>Unsite tip potrebnih korisnika</mat-label>
+                <mat-select [(value)]="event.userType" >
+                    <mat-option value="glumac" >Glumac</mat-option>
+                    <mat-option value="snimatelj" >Snimatelj</mat-option>
+                    <mat-option value="statista" >Statista</mat-option>
+                </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="example-full-width polje-za-uneti">
                 <mat-label>Unesite broj potrebnih korisnika</mat-label>
-                <input matInput  id="broj-korisnika-input" type="number" required>
+                <input matInput [(ngModel)]="event.userCount" type="number" required>
             </mat-form-field>
              
-            <button class="login-btn"  type="button">Sačuvaj</button>
+            <button class="login-btn" type="button" (click)="handleClick()">Sačuvaj</button>
         </div>
     </div>
 </div> 

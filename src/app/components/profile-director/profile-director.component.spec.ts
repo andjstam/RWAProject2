@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilKorisnikComponent } from './profil-korisnik.component';
+import { ProfileDirectorComponent } from './profile-director.component';
 
-describe('ProfilKorisnikComponent', () => {
-  let component: ProfilKorisnikComponent;
-  let fixture: ComponentFixture<ProfilKorisnikComponent>;
+describe('ProfilReziserComponent', () => {
+  let component: ProfileDirectorComponent;
+  let fixture: ComponentFixture<ProfileDirectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilKorisnikComponent ]
+      declarations: [ ProfileDirectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilKorisnikComponent);
+    fixture = TestBed.createComponent(ProfileDirectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

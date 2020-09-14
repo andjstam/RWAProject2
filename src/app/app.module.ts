@@ -27,11 +27,12 @@ import { environment } from '../environments/environment';
 import { AuthRoleGuard } from './services/auth-role.guard'
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects'
-import { DirectorEffects} from './store/effects/director.effects'
+import { DirectorEffects} from './store/effects/director.effects';
+import { EventEffects } from './store/effects/event.effects'
 import { SearchUsersComponent } from './components/search-users/search-users.component';
-import { ProfilReziserComponent } from './components/profil-reziser/profil-reziser.component';
-import { PretragaOglasiComponent } from './components/pretraga-oglasi/pretraga-oglasi.component';
-import { ProfilKorisnikComponent } from './components/profil-korisnik/profil-korisnik.component';
+import { ProfileDirectorComponent } from './components/profile-director/profile-director.component';
+import { SearchEventsComponent } from './components/search-events/search-events.component';
+import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { CreateEventComponent } from './components/create-event/create-event.component'
 
 @NgModule({
@@ -43,9 +44,9 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     DirectorComponent,
     UserComponent,
     SearchUsersComponent,
-    ProfilReziserComponent,
-    PretragaOglasiComponent,
-    ProfilKorisnikComponent,
+    ProfileDirectorComponent,
+    SearchEventsComponent,
+    ProfileUserComponent,
     CreateEventComponent
   ],
   imports: [
@@ -65,7 +66,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     MatCardModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AuthEffects, DirectorEffects]),
+    EffectsModule.forRoot([AuthEffects, DirectorEffects, EventEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     })

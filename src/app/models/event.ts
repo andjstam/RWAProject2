@@ -1,6 +1,6 @@
 
 export interface IEvent {
-    id: number;
+    id?: number;
     name: string;
     description: string;
     userType: string;
@@ -16,8 +16,7 @@ export class Event implements IEvent{
     userCount: number;
     directorId: string;
 
-    constructor(id, name, description, type, count, dirId) {
-        this.id = id;
+    constructor( name, description, type, count, dirId) {
         this.name = name;
         this.description = description;
         this.userType = type;

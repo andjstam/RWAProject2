@@ -5,9 +5,9 @@ import { DirectorComponent } from './components/director/director.component';
 import { UserComponent } from './components/user/user.component';
 import { AuthRoleGuard } from './services/auth-role.guard';
 import { SearchUsersComponent } from './components/search-users/search-users.component';
-import { ProfilReziserComponent } from './components/profil-reziser/profil-reziser.component';
-import { ProfilKorisnikComponent } from './components/profil-korisnik/profil-korisnik.component';
-import { PretragaOglasiComponent } from './components/pretraga-oglasi/pretraga-oglasi.component';
+import { ProfileDirectorComponent } from './components/profile-director/profile-director.component';
+import { ProfileUserComponent } from './components/profile-user/profile-user.component';
+import { SearchEventsComponent } from './components/search-events/search-events.component'
 
 const routes: Routes = [
     {path: '', redirectTo: '/mainPage', pathMatch: 'full'},
@@ -17,8 +17,8 @@ const routes: Routes = [
       component: DirectorComponent,
       canActivate:[AuthRoleGuard],
       children: [
-        {path: '', component: ProfilReziserComponent },
-        {path: 'profil', component: ProfilReziserComponent},
+        {path: '', component: ProfileDirectorComponent },
+        {path: 'profil', component: ProfileDirectorComponent},
         {path: 'pocetna', component: SearchUsersComponent}
       ],
       data: { role: 'reziser'}
@@ -27,9 +27,9 @@ const routes: Routes = [
       path: 'korisnik',
       component: UserComponent,
       children: [
-        {path: '', component: ProfilKorisnikComponent },
-        {path: 'profil', component: ProfilKorisnikComponent},
-        {path: 'pocetna', component: PretragaOglasiComponent}
+        {path: '', component: ProfileUserComponent },
+        {path: 'profil', component: ProfileUserComponent},
+        {path: 'pocetna', component: SearchEventsComponent}
       ],
       canActivate:[AuthRoleGuard],
       data: { role: 'korisnik'}

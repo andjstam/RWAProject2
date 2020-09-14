@@ -31,9 +31,3 @@ export function directorReducer(state = initialState, action: DirectorActions): 
   }
 }
 
-export const selectDirectorState = state => state.director;
-
-export const selectDirectorInfo = createSelector(
-  selectDirectorState,
-  director => director.director
-);

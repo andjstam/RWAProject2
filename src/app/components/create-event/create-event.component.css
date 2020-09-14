@@ -130,11 +130,13 @@
 
 .polje-za-uneti{
     width:90%;
+    background-color:transparent;
 }
 
 .label{
-    color: rgb(39, 37, 37);
+    color: rgb(66, 64, 64);
     padding:15px;
-    font-size:22px;
+    font-size:25px;
+    margin-bottom:20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

@@ -22,8 +22,8 @@ export class DirectorService {
     return this.http.put<Object[]>(url,oglas);
   }
 
-  deleteEvent(idOglasa: number):Observable<any>{
-    let url=this.baseUrl+`/event/${idOglasa}`;
+  deleteEvent( eventId: number):Observable<any>{
+    let url=this.baseUrl+`/event/${eventId}`;
     return this.http.delete<Object[]>(url);
   }
 
@@ -36,6 +36,12 @@ export class DirectorService {
     let url=this.baseUrl+`/director?email=${email}`;
     return this.http.get<Object[]>(url);
   }
+  
+  getEventsByDirectorsId( id: number): Observable<any>{
+    let url=this.baseUrl+`/event?directorId=${id}`;
+    return this.http.get<Object[]>(url);
+  }
+  
   
   //da uzima predlozene korisnike za event
   //metoda da update korisnika i da upise novog radnika

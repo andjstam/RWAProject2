@@ -4,10 +4,10 @@ import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'app-pretraga-oglasi',
-  templateUrl: './pretraga-oglasi.component.html',
-  styleUrls: ['./pretraga-oglasi.component.css']
+  templateUrl: './search-events.component.html',
+  styleUrls: ['./search-events.component.css']
 })
-export class PretragaOglasiComponent implements OnInit {
+export class SearchEventsComponent implements OnInit {
   nizOglas: Event[]=[];
   filteredNizOglas: Event[]=[];
 
@@ -27,7 +27,7 @@ export class PretragaOglasiComponent implements OnInit {
     .subscribe(
       events =>{
         events.forEach(ev => {
-          var newEvent=new Event(ev.id, ev.name, ev.description, ev.userType, ev.userCount, ev.directorId);
+          var newEvent=new Event( ev.name, ev.description, ev.userType, ev.userCount, ev.directorId);
           this.nizOglas.push(newEvent);
         },
         err => {
