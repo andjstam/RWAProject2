@@ -9,19 +9,22 @@ import { environment } from '../../../environments/environment';
 import {AuthState, authReducer} from './auth.reducer';
 import {DirectorState, directorReducer} from '../reducers/director.reducer'
 import {EventsState, eventReducer} from '../reducers/events.reducer'
+import { EventToUpdateState, eventToUpdateReducer} from '../reducers/event-to-update.reducer'
 
 
 export interface AppState {
   auth: AuthState,
   director: DirectorState,
-  events: EventsState
+  events: EventsState,
+  eventToUpdate: EventToUpdateState;
 }
 
 
 export const reducers: ActionReducerMap<AppState> = {
   auth: authReducer,
   director: directorReducer,
-  events: eventReducer
+  events: eventReducer,
+  eventToUpdate: eventToUpdateReducer
 };
 
 

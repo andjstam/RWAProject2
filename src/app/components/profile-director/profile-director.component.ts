@@ -8,7 +8,8 @@ import {  selectDirectorInfo } from 'src/app/store/selectors/director.selector';
 import { selectAllEvents } from '../../store/selectors/event.selectors'
 import { DirectorService } from 'src/app/services/director.service';
 import { DeleteEvent, LoadDirectorsEvents } from 'src/app/store/actions/event.actions';
-import { Event } from '../../models/event'
+import { Event } from '../../models/Event'
+import { EventToUpdate } from 'src/app/store/actions/event-to-update.actions';
 
 @Component({
   selector: 'app-profil-reziser',
@@ -69,6 +70,7 @@ export class ProfileDirectorComponent implements OnInit {
   onUpdateClick(event : Event){
     this.displayEventModal=true;
     this.isUpdating=true;
+    this.store.dispatch(new EventToUpdate(event));
   }
 
   onDeleteClick(event: Event){

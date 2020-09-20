@@ -5,14 +5,14 @@
                 <input type="text" class="search form-control" placeholder="Pretrazite oglase po tipu korisnika koje traže" [(ngModel)]='inputFilter'/>
                 <label class="filter-label"> Filtrirano po: {{ inputFilter }}</label>
             </div>
-            <div class="korisnici" *ngIf='nizOglas && nizOglas.length'>
-              <div *ngFor="let oglas of filteredNizOglas">
+            <div class="korisnici" *ngIf='allEvents && allEvents.length'>
+              <div *ngFor="let event of filteredEvents">
                 <mat-card class="example-card">
                   <div class="oglas-content">
                       <mat-card-actions class="oglas-details">
-                          <mat-card-title>{{oglas.name}}</mat-card-title>
-                          <mat-card-subtitle>{{oglas.description}}</mat-card-subtitle>
-                          <mat-card-subtitle>{{oglas.userType}} {{oglas.userCount}}</mat-card-subtitle>
+                          <mat-card-title>{{event.name}}</mat-card-title>
+                          <mat-card-subtitle>{{event.description}}</mat-card-subtitle>
+                          <mat-card-subtitle>{{event.userType}} {{event.userCount}}</mat-card-subtitle>
                           <div class="oglas-buttons">
                               <button class="oglas-dugme" mat-button>Prijavi se</button>
                               <button class="oglas-dugme" mat-button>Odbij</button>

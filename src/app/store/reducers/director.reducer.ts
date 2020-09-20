@@ -1,6 +1,6 @@
 import { Action, createSelector } from '@ngrx/store';
 import { DirectorActionTypes, DirectorActions } from '../actions/director.actions';
-import { Director } from 'src/app/models/director';
+import { Director } from 'src/app/models/Director';
 
 
 export const directorFeatureKey = 'director';

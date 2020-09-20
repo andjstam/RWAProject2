@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Event } from '../../models/event'
+import { Event } from '../../models/Event'
 
 export enum EventActionTypes {
   LOAD_ALL_EVENTS = '[Event] LOAD_ALL_EVENTS',
@@ -10,7 +10,6 @@ export enum EventActionTypes {
   NEW_EVENT_SUCCESS = '[Event] NEW_EVENT_SUCCESS',
   UPDATE_EVENT = '[Event] UPDATE_EVENT',
   DELETE_EVENT = '[Event] DELETE_EVENT',
-  DELETE_EVENT_SUCCESS='[Event] DELETE_EVENT_SUCCESS',
   DELETE_ALL_EVENTS ='[Event] DELETE_ALL_EVENTS'
 }
 
@@ -54,11 +53,6 @@ export class DeleteEvent implements Action {
   constructor(public payload : Event) {}
 }
 
-export class DeleteEventSuccess implements Action {
-  readonly type = EventActionTypes.DELETE_EVENT_SUCCESS;
-  constructor(public payload : Event) {}
-}
-
 export class DeleteAllEvents implements Action {
   readonly type = EventActionTypes.DELETE_ALL_EVENTS;
   constructor(){}
@@ -74,5 +68,4 @@ export type EventActions = LoadDirectorsEvents
 | NewEventSuccess
 | UpdateEvent 
 | DeleteEvent
-| DeleteEventSuccess
 | DeleteAllEvents;

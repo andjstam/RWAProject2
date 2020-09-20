@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 import { EventActions, EventActionTypes } from '../actions/event.actions';
-import { Event } from '../../models/event'
+import { Event } from '../../models/Event'
 
 
 export interface EventsState extends EntityState<Event> {}
@@ -22,7 +22,7 @@ export function eventReducer(state = initialState, action: EventActions): Events
     case EventActionTypes.NEW_EVENT_SUCCESS:
       return adapter.addOne(action.payload, state);
 
-    case EventActionTypes.DELETE_EVENT_SUCCESS:
+    case EventActionTypes.DELETE_EVENT:
       return adapter.removeOne(action.payload.id, state);
 
     case EventActionTypes.DELETE_ALL_EVENTS:
@@ -31,7 +31,7 @@ export function eventReducer(state = initialState, action: EventActions): Events
     case EventActionTypes.UPDATE_EVENT: {
         const { id, ...changes } = action.payload;
         return adapter.updateOne({ id, changes: { ...changes } }, state);
-      }
+      } 
     default:
       return state;
   }

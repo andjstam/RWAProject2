@@ -26,8 +26,6 @@ export class AuthEffects {
       new DeleteAllEvents(),
       new DeleteDirectorInfo()
     ]),
-    // map(() => ({ type: DirectorActionTypes.DELETE_INFO_ACTION})),
-    // map(() => ({ type: EventActionTypes.DELETE_ALL_EVENTS})),
     tap(() => {
       localStorage.removeItem("user");
       this.router.navigateByUrl('/login');

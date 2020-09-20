@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Event } from 'src/app/models/event';
+import { Event } from 'src/app/models/Event';
+import { NewEvent } from 'src/app/store/actions/event.actions';
 import { UserService } from '../../services/user.service'
 
 @Component({
@@ -8,8 +9,8 @@ import { UserService } from '../../services/user.service'
   styleUrls: ['./search-events.component.css']
 })
 export class SearchEventsComponent implements OnInit {
-  nizOglas: Event[]=[];
-  filteredNizOglas: Event[]=[];
+  allEvents: Event[]=[];
+  filteredEvents: Event[]=[];
 
   _inputFilter: string;
   get inputFilter(){
@@ -17,32 +18,28 @@ export class SearchEventsComponent implements OnInit {
   }
   set inputFilter(value:string){
     this._inputFilter=value;
-    this.filteredNizOglas= this.inputFilter ? this.filtriraj(this.inputFilter) : this.nizOglas;
+    this.filteredEvents= this.inputFilter ? this.filtriraj(this.inputFilter) : this.allEvents;
   }
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getAllEvents()
-    .subscribe(
-      events =>{
-        events.forEach(ev => {
-          var newEvent=new Event( ev.name, ev.description, ev.userType, ev.userCount, ev.directorId);
-          this.nizOglas.push(newEvent);
-        },
+    .subscribe((events: Event[]) =>
+        //this.allEvents= {...events};
+        events.forEach(ev => this.allEvents.push(ev)),
         err => {
           console.log(err.message);
           alert(`Ne radi get`);
         });
-      })
-      // console.log(this.nizKorisnik)
-      this.filteredNizOglas=this.nizOglas;
+      this.filteredEvents=this.allEvents;
+      console.log(this.allEvents)
       console.log('on init end');
   }
 
   filtriraj(filterBy: string): Event[]{
     filterBy=filterBy.toLocaleLowerCase();
-    return this.nizOglas.filter( (korisnik: Event)=>
+    return this.allEvents.filter( (korisnik: Event)=>
         korisnik.userType.toLocaleLowerCase().indexOf(filterBy)!==-1);
   }
 

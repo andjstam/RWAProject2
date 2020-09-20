@@ -1,5 +1,5 @@
 import { Action, createAction, props } from '@ngrx/store';
-import { Director } from '../../models/director'
+import { Director } from '../../models/Director'
 
 export enum DirectorActionTypes {
     NEED_INFO_ACTION = '[Director Profile Page] Requesting User Info',

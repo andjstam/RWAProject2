@@ -1,14 +1,17 @@
 import { Injectable } from "@angular/core";
-import {Actions, ofType, createEffect} from '@ngrx/effects';
+import {Actions, ofType, createEffect, Effect} from '@ngrx/effects';
 import { Store } from "@ngrx/store";
-import { map, mergeMap } from 'rxjs/operators';
+import { noop } from 'rxjs';
+import { map, mergeMap, tap } from 'rxjs/operators';
 import { DirectorService } from 'src/app/services/director.service';
-import { DeleteEvent, DeleteEventSuccess, EventActionTypes, LoadDirectorsEvents, NewEvent } from '../actions/event.actions';
+import { EventToUpdateTypes } from '../actions/event-to-update.actions';
+import { DeleteEvent, EventActionTypes, LoadDirectorsEvents, NewEvent, UpdateEvent } from '../actions/event.actions';
 import { AppState } from '../reducers';
 
 
 @Injectable()
 export class EventEffects {
+
 
     getDirectorsEvents=createEffect(() => this.actions$.pipe(
         ofType<LoadDirectorsEvents>( EventActionTypes.LOAD_DIRECTORS_EVENTS),
@@ -34,17 +37,26 @@ export class EventEffects {
         )
     ))
 
-    deleteOneEvent= createEffect(()=> this.actions$.pipe(
-        ofType<DeleteEvent>( EventActionTypes.DELETE_EVENT),
-        // map((action) => action.payload)
-        // mergeMap( (action) => {
-        //     this.directorService.deleteEvent(action.id);
-        //     this.store.dispatch(new DeleteEventSuccess(action))
-        // } )
-    ))
+    updateEvent= createEffect(() => this.actions$.pipe(
+        ofType<UpdateEvent>( EventActionTypes.UPDATE_EVENT),
+        mergeMap((event)=>this.directorService.updateEvent(event.payload.id, event.payload)
+        .pipe(
+        map((event)=>({
+            type:EventToUpdateTypes.DELETE_EVENT_TO_UPDATE,
+        })))
+    )))
 
-  
-      
+    @Effect({dispatch:false})
+    deleteOneEvent = this.actions$.pipe(
+        ofType<DeleteEvent>(EventActionTypes.DELETE_EVENT),
+        tap(action => this.directorService.deleteEvent(action.payload.id)
+        .subscribe(
+            noop,
+            err => alert("Doslo je do greske pri brisanju eventa iz baze!")
+        ))
+    );
+
+
     constructor(private actions$: Actions,
                 private store: Store<AppState>,
                 private directorService : DirectorService) { }

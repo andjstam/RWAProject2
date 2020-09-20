@@ -1,4 +1,4 @@
-import { LoggedUser} from 'src/app/models/logged-user';
+import { LoggedUser} from 'src/app/models/LoggedUser';
 import { AuthActionTypes, AuthActions } from '../actions/auth.actions';
 
 

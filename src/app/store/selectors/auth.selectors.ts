@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { LoggedUser} from '../../models/logged-user';
+import { LoggedUser} from '../../models/LoggedUser';
 
 export const selectAuthState = state => state.auth;
 

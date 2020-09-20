@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/models/User';
 import { DirectorService} from '../../services/director.service'
 
 @Component({
@@ -25,10 +25,9 @@ export class SearchUsersComponent implements OnInit {
     
     this.reziserService.getAllUsers()
     .subscribe(
-      users =>{
+      (users : User[]) =>{
         users.forEach(user => {
-          var newUser=new User(user.name, user.surname, user.email, user.type, user.grade, user.status, user.workPlace);
-          this.nizKorisnik.push(newUser);
+          this.nizKorisnik.push(user);
         },
         err => {
           console.log(err.message);

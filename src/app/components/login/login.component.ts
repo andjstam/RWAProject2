@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { LoggedUser } from '../../models/logged-user';
+import { LoggedUser } from '../../models/LoggedUser';
 import { Router } from '@angular/router';
 import { ShowNavService } from '../../services/show-nav.service';
 import { AppState } from '../../store/reducers';
@@ -48,11 +48,10 @@ export class LoginComponent implements OnInit {
   }
 
   btnLoginClicked(){
-    const email: HTMLInputElement = (document.getElementById('email-input-log') as HTMLInputElement);
-    const password: HTMLInputElement = (document.getElementById('password-input-log') as HTMLInputElement);
-    const provera=this.checkInput(email.value, password.value);
+   
+    const provera=this.checkInput(this.email.value, this.password.value);
     if(provera){
-      this.authService.checkIfUserValid(email.value, password.value)
+      this.authService.checkIfUserValid(this.email.value, this.password.value)
       .pipe( 
         map(array=> array[0])
       ).subscribe(value=>{

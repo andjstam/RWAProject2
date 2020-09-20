@@ -1,9 +1,10 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { NewEvent } from 'src/app/store/actions/event.actions';
+import { DeleteEventToUpdate } from 'src/app/store/actions/event-to-update.actions';
+import { NewEvent, UpdateEvent } from 'src/app/store/actions/event.actions';
 import { AppState } from 'src/app/store/reducers';
 import { selectDirectorId } from 'src/app/store/selectors/director.selector';
-import { Event } from "../../models/event"
+import { Event } from "../../models/Event"
 
 @Component({
   selector: 'create-oglas',
@@ -29,7 +30,9 @@ export class CreateEventComponent implements OnInit {
   constructor( private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    console.log("isUpdating: "+ this.isUpdating)
+    //console.log("isUpdating: "+ this.isUpdating);
+    this.store.select( state => state.eventToUpdate.event)
+    .subscribe(event => this.event={...event});
   }
   
   cancelModal(): void {
@@ -38,7 +41,7 @@ export class CreateEventComponent implements OnInit {
 
   handleClick(): void {
     if(this.isUpdating){
-
+      this.store.dispatch( new UpdateEvent(this.event))
     }
     else
     {

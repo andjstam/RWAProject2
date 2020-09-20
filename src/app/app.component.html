@@ -1,14 +1,16 @@
-<mat-toolbar class="nav-bar">
-  <div class="nav-buttons" *ngIf="showNavButtons">
-    <button class="nav-button" (click)="pocetnaClicked();">Početna</button>
-    <button class="nav-button" (click)="profilClicked();">Profil</button>
-    <button class="nav-button" (click)="logoutClicked();">Logout</button>
+<div class="celo">
+  <mat-toolbar class="nav-bar">
+    <div class="nav-buttons" *ngIf="showNavButtons">
+      <button class="nav-button" (click)="pocetnaClicked();">Početna</button>
+      <button class="nav-button" (click)="profilClicked();">Profil</button>
+      <button class="nav-button" (click)="logoutClicked();">Logout</button>
+    </div>
+    <img class="logo" src="../assets/camera.png">
+    <span class="text-logo">direktorg.</span>
+  </mat-toolbar>
+  <div class="ruter">
+    <router-outlet></router-outlet>
   </div>
-  <img class="logo" src="../assets/camera.png">
-  <span class="text-logo">direktorg.</span>
-</mat-toolbar>
-<div class="ruter">
-  <router-outlet></router-outlet>
 </div>
 <footer class="footer">
   <label>copyright@2020</label>
