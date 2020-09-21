@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/store/reducers';
+import { AppState } from 'src/app/store';
 import { selectLoggedUser } from '../../store/selectors/auth.selectors';
 import { filter } from 'rxjs/operators';
 import { NeedDirectorInfo } from 'src/app/store/actions/director.actions';
@@ -24,31 +24,25 @@ export class ProfileDirectorComponent implements OnInit {
   email: string;
   sertificate: string;
 
-  user$=this.store.pipe(
-    select(selectLoggedUser),
-    filter(val => val !== undefined)
-  );
-
   director$=this.store.pipe(
     select(selectDirectorInfo),
     filter(val => val !== undefined)
   );
   
-
-  constructor(private store: Store<AppState>, private directorService: DirectorService) { 
+  constructor(private store: Store<AppState>) { 
     this.displayEventModal=false;
     this.isUpdating=false;
   }
 
   ngOnInit(): void {
-    this.user$.subscribe(
-      user => this.store.dispatch(new NeedDirectorInfo(user.email))
-    )
+    // this.user$.subscribe(
+    //   user => this.store.dispatch(new NeedDirectorInfo(user.email))
+    // )
     this.director$.subscribe( director =>{
         this.name=director.name + " "+ director.surname;
         this.email=director.email;
         this.sertificate=director.sertificate;
-        this.store.dispatch(new LoadDirectorsEvents(director.id))
+        // this.store.dispatch(new LoadDirectorsEvents(director.id))
      }
     )
 

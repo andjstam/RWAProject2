@@ -1,4 +1,5 @@
 export interface IUser {
+    id: number;
     name:string;
     surname:string;
     email: string;
@@ -10,6 +11,7 @@ export interface IUser {
 }
 
 export class User implements IUser{
+    id: number;
     name: string;
     surname: string;
     email: string;

@@ -30,7 +30,7 @@ export class SearchEventsComponent implements OnInit {
         events.forEach(ev => this.allEvents.push(ev)),
         err => {
           console.log(err.message);
-          alert(`Ne radi get`);
+          alert(`Ne radi `);
         });
       this.filteredEvents=this.allEvents;
       console.log(this.allEvents)

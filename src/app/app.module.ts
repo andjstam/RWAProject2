@@ -21,14 +21,15 @@ import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
 import { DirectorComponent } from './components/director/director.component';
 import { UserComponent } from './components/user/user.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store/reducers';
+import { reducers, metaReducers } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AuthRoleGuard } from './services/auth-role.guard'
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects'
 import { DirectorEffects} from './store/effects/director.effects';
-import { EventEffects } from './store/effects/event.effects'
+import { EventEffects } from './store/effects/event.effects';
+import { UserEffects } from './store/effects/user.effects'
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import { ProfileDirectorComponent } from './components/profile-director/profile-director.component';
 import { SearchEventsComponent } from './components/search-events/search-events.component';
@@ -66,7 +67,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     MatCardModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AuthEffects, DirectorEffects, EventEffects]),
+    EffectsModule.forRoot([AuthEffects, DirectorEffects, EventEffects, UserEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ShowNavService} from './services/show-nav.service'
 import { Store, select } from '@ngrx/store';
-import { AppState } from './store/reducers';
+import { AppState } from './store';
 import { Logout } from './store/actions/auth.actions';
 import { Router } from '@angular/router';
 import { selectLoggedUser } from './store/selectors/auth.selectors';

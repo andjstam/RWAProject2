@@ -2,8 +2,8 @@ import { Action } from '@ngrx/store';
 import { Event } from '../../models/Event';
 
 export enum EventToUpdateTypes {
-  SET_EVENT_TO_UPDATE = '[Event] SET_EVENT_TO_UPDATE',
-  DELETE_EVENT_TO_UPDATE ='[Event] DELETE_EVENT_TO_UPDATE'
+  SET_EVENT_TO_UPDATE = '[Event] Set event to update',
+  DELETE_EVENT_TO_UPDATE ='[Event] Delete event to update'
 }
 
 export class EventToUpdate implements Action {

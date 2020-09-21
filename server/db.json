@@ -228,9 +228,9 @@
     },
     {
       "name": "Duze od veka traje dan",
-      "description": "Sovjetska drzava, Sibir. Zeleznicka stanica. Covek umire.",
+      "description": "Sovjetska drzava, Sibir. Zeleznicka stanica. Covek umire. Raketa iz dva razlicita kraja sveta krece ka jednoj svemirskog stnici... Nesto se cudno desava",
       "userType": "statista",
-      "userCount": 8,
+      "userCount": 17,
       "directorId": 4,
       "id": 4
     },
@@ -265,6 +265,22 @@
       "userCount": 5,
       "directorId": 1,
       "id": 10
+    },
+    {
+      "name": "ja sam andjela",
+      "description": "njdanlsdnl",
+      "userType": "statista",
+      "userCount": 11,
+      "directorId": 1,
+      "id": 11
+    },
+    {
+      "name": "Ludovico je ipak vise voleo violinu",
+      "description": "Poznati kompozitor i pijanista Ludovico Einaudi, nailazi na raskrce gde preispituje svoje sustinske zivotne odluke",
+      "userType": "statista",
+      "userCount": 20,
+      "directorId": 4,
+      "id": 12
     }
   ]
 }

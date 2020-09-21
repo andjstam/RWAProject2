@@ -6,7 +6,7 @@ import { map, mergeMap, tap } from 'rxjs/operators';
 import { DirectorService } from 'src/app/services/director.service';
 import { EventToUpdateTypes } from '../actions/event-to-update.actions';
 import { DeleteEvent, EventActionTypes, LoadDirectorsEvents, NewEvent, UpdateEvent } from '../actions/event.actions';
-import { AppState } from '../reducers';
+import { AppState } from '..';
 
 
 @Injectable()

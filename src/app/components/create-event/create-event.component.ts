@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { DeleteEventToUpdate } from 'src/app/store/actions/event-to-update.actions';
 import { NewEvent, UpdateEvent } from 'src/app/store/actions/event.actions';
-import { AppState } from 'src/app/store/reducers';
+import { AppState } from 'src/app/store';
 import { selectDirectorId } from 'src/app/store/selectors/director.selector';
 import { Event } from "../../models/Event"
 

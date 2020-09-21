@@ -44,6 +44,11 @@ export class DirectorService {
     let url=this.baseUrl+"/user";
     return this.http.get<IUser[]>(url);
   }
+
+  getSpecUser() : Observable<IUser>{
+    let url=this.baseUrl+"/user/4";
+    return this.http.get<IUser>(url);
+  }
   
   //da uzima predlozene korisnike za event
   //metoda da update korisnika i da upise novog radnika

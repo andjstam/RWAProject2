@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { User } from 'src/app/models/User';
+import { AppState } from 'src/app/store';
+import { selectAllUsers } from '../../store/selectors/user.selectors'
 import { DirectorService} from '../../services/director.service'
 
 @Component({
@@ -8,8 +11,8 @@ import { DirectorService} from '../../services/director.service'
   styleUrls: ['./search-users.component.css']
 })
 export class SearchUsersComponent implements OnInit {
-  nizKorisnik: User[]=[];
-  filteredNizKorisnik: User[]=[];
+  usersArray: User[]=[];
+  filteredUsers: User[]=[];
  
   _inputFilter: string;
   get inputFilter(){
@@ -17,32 +20,37 @@ export class SearchUsersComponent implements OnInit {
   }
   set inputFilter(value:string){
     this._inputFilter=value;
-    this.filteredNizKorisnik= this.inputFilter ? this.filtriraj(this.inputFilter) : this.nizKorisnik;
+    this.filteredUsers= this.inputFilter ? this.filtriraj(this.inputFilter) : this.usersArray;
   }
-  constructor(private reziserService: DirectorService) { }
+  constructor(private store: Store<AppState>, private reziserService: DirectorService) { }
 
   ngOnInit(): void {
-    
-    this.reziserService.getAllUsers()
-    .subscribe(
-      (users : User[]) =>{
-        users.forEach(user => {
-          this.nizKorisnik.push(user);
-        },
-        err => {
-          console.log(err.message);
-          alert(`Ne radi get`);
-        });
-      })
-      //console.log(this.nizKorisnik)
-      this.filteredNizKorisnik=this.nizKorisnik;
-      console.log('on init end');
+
+    this.store.select(selectAllUsers).subscribe(
+      (users) => users.forEach(u => { this.usersArray.push(u); })
+    )
+    this.filteredUsers=this.usersArray;
+   
+    // this.reziserService.getAllUsers()
+    // .subscribe(
+    //   (users : User[]) =>{
+    //     users.forEach(user => {
+    //       this.usersArray.push(user);
+    //     },
+    //     err => {
+    //       console.log(err.message);
+    //       alert(`Ne radi get`);
+    //     });
+    //   })
+    //   //console.log(this.nizKorisnik)
+    //   this.filteredUsers=this.usersArray;
+    //   console.log('on init end');
     
   }
 
   filtriraj(filterBy: string): User[]{
     filterBy=filterBy.toLocaleLowerCase();
-    return this.nizKorisnik.filter( (user: User)=>
+    return this.usersArray.filter( (user: User)=>
       user.name.toLocaleLowerCase().indexOf(filterBy)!==-1 || 
       user.surname.toLocaleLowerCase().indexOf(filterBy)!==-1 ||
       user.type.toLocaleLowerCase().indexOf(filterBy)!==-1);

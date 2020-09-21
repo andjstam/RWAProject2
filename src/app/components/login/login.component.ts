@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { LoggedUser } from '../../models/LoggedUser';
 import { Router } from '@angular/router';
 import { ShowNavService } from '../../services/show-nav.service';
-import { AppState } from '../../store/reducers';
+import { AppState } from '../../store';
 import { Store } from '@ngrx/store';
 import { Login } from '../../store/actions/auth.actions';
 import { map } from 'rxjs/operators';
