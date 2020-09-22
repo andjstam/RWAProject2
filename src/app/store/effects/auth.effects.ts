@@ -7,6 +7,8 @@ import {defer, of} from 'rxjs';
 import { ShowNavService } from '../../services/show-nav.service';
 import { DeleteDirectorInfo, DirectorActionTypes } from '../actions/director.actions';
 import { DeleteAllEvents, EventActionTypes } from '../actions/event.actions';
+import { DeleteUserInfoAction } from '../actions/user-info.actions';
+import { DeleteAllUsers } from '../actions/user.actions';
 
 
 @Injectable()
@@ -24,7 +26,9 @@ export class AuthEffects {
     ofType<Logout>(AuthActionTypes.LogoutAction),
     switchMap(()=> [
       new DeleteAllEvents(),
-      new DeleteDirectorInfo()
+      new DeleteDirectorInfo(),
+      new DeleteUserInfoAction(),
+      new DeleteAllUsers()
     ]),
     tap(() => {
       localStorage.removeItem("user");

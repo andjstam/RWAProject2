@@ -16,7 +16,8 @@ export function userReducer(state = initialState, action: UserActions): UserStat
 
     case UserActionTypes.LOAD_ALL_USERS_SUCCESS:
       return userAdapter.addMany(action.payload, state);
-
+    case UserActionTypes.DELETE_ALL_USERS:
+      return userAdapter.removeAll(state)
     default:
       return state;
   }

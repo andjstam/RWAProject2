@@ -4,9 +4,11 @@
         <div class="profile-div">
             <div class="profile-image-div"> </div>
             <div class="profile-info-div">
-                <label class="lbl-ime">Andjela Stamenkovic</label>
-                <label class="lbl-mail">andjstam@gmail.com</label>
-                <label class="lbl-sertifikat">balalbalbab</label>
+                <label class="lbl-ime">{{user.name}} {{user.surname}}</label>
+                <label class="lbl-mail">{{user.email}}</label>
+                <label class="lbl-mail">{{user.type}}</label>
+                <label class="lbl-mail">Trenutni status: {{user.status}}</label>
+                <label class="lbl-mail" *ngIf="user.workPlace">Radno mesto: {{user.workPlace}}</label>
             </div>
         </div>
     </div>

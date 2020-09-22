@@ -5,13 +5,22 @@ import { noop } from 'rxjs';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { DirectorService } from 'src/app/services/director.service';
 import { EventToUpdateTypes } from '../actions/event-to-update.actions';
-import { DeleteEvent, EventActionTypes, LoadDirectorsEvents, NewEvent, UpdateEvent } from '../actions/event.actions';
+import { DeleteEvent, EventActionTypes, LoadAllEvents, LoadDirectorsEvents, NewEvent, UpdateEvent } from '../actions/event.actions';
 import { AppState } from '..';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Injectable()
 export class EventEffects {
 
+    getAllEvents=createEffect(()=> this.actions$.pipe(
+        ofType<LoadAllEvents>(EventActionTypes.LOAD_ALL_EVENTS),
+        mergeMap(()=>this.userService.getAllEvents().pipe(
+        map((events)=>({
+            type:EventActionTypes.LOAD_ALL_EVENTS_SUCCESS,
+            payload: events
+        })))
+    )))
 
     getDirectorsEvents=createEffect(() => this.actions$.pipe(
         ofType<LoadDirectorsEvents>( EventActionTypes.LOAD_DIRECTORS_EVENTS),
@@ -58,7 +67,7 @@ export class EventEffects {
 
 
     constructor(private actions$: Actions,
-                private store: Store<AppState>,
-                private directorService : DirectorService) { }
+                private directorService : DirectorService,
+                private userService: UserService) { }
 
 }

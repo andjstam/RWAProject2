@@ -30,7 +30,6 @@ export class CreateEventComponent implements OnInit {
   constructor( private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    //console.log("isUpdating: "+ this.isUpdating);
     this.store.select( state => state.eventToUpdate.event)
     .subscribe(event => this.event={...event});
   }

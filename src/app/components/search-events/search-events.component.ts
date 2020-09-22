@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
 import { Event } from 'src/app/models/Event';
-import { NewEvent } from 'src/app/store/actions/event.actions';
-import { UserService } from '../../services/user.service'
+import { AppState } from 'src/app/store';
+import { selectAllEvents } from 'src/app/store/selectors/event.selectors';
 
 @Component({
   selector: 'app-pretraga-oglasi',
@@ -21,20 +23,18 @@ export class SearchEventsComponent implements OnInit {
     this.filteredEvents= this.inputFilter ? this.filtriraj(this.inputFilter) : this.allEvents;
   }
 
-  constructor(private userService: UserService) { }
+  events$=this.store.pipe(
+    select(selectAllEvents),
+    filter(val => val !== undefined)
+  )
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.userService.getAllEvents()
-    .subscribe((events: Event[]) =>
-        //this.allEvents= {...events};
-        events.forEach(ev => this.allEvents.push(ev)),
-        err => {
-          console.log(err.message);
-          alert(`Ne radi `);
-        });
-      this.filteredEvents=this.allEvents;
-      console.log(this.allEvents)
-      console.log('on init end');
+    this.events$.subscribe(
+      (events) => events.forEach(u => { this.allEvents.push(u); }))
+    this.filteredEvents=this.allEvents;
+    
   }
 
   filtriraj(filterBy: string): Event[]{

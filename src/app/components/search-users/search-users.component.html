@@ -2,7 +2,8 @@
     <div class="okvir">
         <div class="pretraga" >
             <div class="searchDiv">
-                <input type="text" class="search form-control" placeholder="Pretrazite korisnike po imenu, prezimenu i tipu" [(ngModel)]='inputFilter'/>
+                <input type="text" class="search form-control" placeholder="Pretrazite korisnike po imenu, prezimenu i tipu"
+                 [(ngModel)]='inputFilter'/>
                 <label class="filter-label"> Filtrirano po: {{ inputFilter }}</label>
             </div>
             <div class="korisnici" *ngIf='usersArray && usersArray.length'>

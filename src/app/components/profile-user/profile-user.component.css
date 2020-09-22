@@ -22,13 +22,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    /* background-color: salmon; */
 }
 
 .profile-image-div{
     background-image: url("../../../assets/korisnik-profile.jpeg");
-    height: 280px;
-    width: 280px;
+    height: 290px;
+    width: 290px;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
@@ -39,7 +38,6 @@
     width: 60%;
     padding-bottom: 10px;
     padding-right:30px;
-    /* background-color: seagreen; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -50,16 +48,13 @@
     color:white;
     font-size:50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: end;
 }
 
 .lbl-mail{
     color:rgba(255, 255, 255, 0.644);
     font-size:30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: end;
 }
 
-.lbl-sertifikat{
-    color:rgba(255, 255, 255, 0.644);
-    font-size:30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
