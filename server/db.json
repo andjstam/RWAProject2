@@ -132,7 +132,7 @@
       "email": "andjstam@gmail.com",
       "type": "snimatelj",
       "grade": "",
-      "status": "slobodan",
+      "status": "u procesu",
       "workPlace": "",
       "id": 2
     },
@@ -142,7 +142,7 @@
       "email": "spaske@gmail.com",
       "type": "glumac",
       "grade": "",
-      "status": "slobodan",
+      "status": "u procesu",
       "workPlace": "",
       "id": 3
     },
@@ -221,7 +221,7 @@
     {
       "id": 1,
       "name": "Orlovi rano lete",
-      "description": "Orlici lete, preletese nebo",
+      "description": "Orlici lete, preletese nebo. Danas umesto orlova lete letelice.. stvarno su leteli ranije",
       "userType": "glumac",
       "userCount": 18,
       "directorId": 1
@@ -232,7 +232,7 @@
       "userType": "statista",
       "userCount": 17,
       "directorId": 4,
-      "id": 4
+      "id": 2
     },
     {
       "name": "Treba da pricamo o Tomu",
@@ -240,15 +240,7 @@
       "userType": "glumac",
       "userCount": 8,
       "directorId": 4,
-      "id": 5
-    },
-    {
-      "name": "Juzni vetar",
-      "description": "Milos Bikovic je supeeeeer",
-      "userType": "glumac",
-      "userCount": 15,
-      "directorId": 2,
-      "id": 8
+      "id": 3
     },
     {
       "name": "Vratice se rode",
@@ -256,23 +248,7 @@
       "userType": "statista",
       "userCount": 76,
       "directorId": 3,
-      "id": 9
-    },
-    {
-      "name": "Ma da li ",
-      "description": "ma da li ",
-      "userType": "snimatelj",
-      "userCount": 5,
-      "directorId": 1,
-      "id": 10
-    },
-    {
-      "name": "ja sam andjela",
-      "description": "njdanlsdnl",
-      "userType": "statista",
-      "userCount": 11,
-      "directorId": 1,
-      "id": 11
+      "id": 4
     },
     {
       "name": "Ludovico je ipak vise voleo violinu",
@@ -280,7 +256,31 @@
       "userType": "statista",
       "userCount": 20,
       "directorId": 4,
-      "id": 12
+      "id": 5
+    }
+  ],
+  "eventSignedUp": [
+    {
+      "event": 5,
+      "user": 3,
+      "id": 3
+    },
+    {
+      "event": 1,
+      "user": 2,
+      "id": 4
+    },
+    {
+      "event": 3,
+      "user": 3,
+      "id": 5
+    }
+  ],
+  "eventEmployed": [
+    {
+      "id": 1,
+      "event": 1,
+      "user": 4
     }
   ]
 }

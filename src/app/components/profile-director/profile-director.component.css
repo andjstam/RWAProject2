@@ -130,3 +130,7 @@
 .oglas-dugme{
     background-color: rgb(170, 144, 140);
 }
+
+.oglas-dugme:hover{
+    background-color: rgb(146, 125, 122);
+}

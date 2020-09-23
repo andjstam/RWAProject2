@@ -9,6 +9,8 @@ import { DeleteDirectorInfo, DirectorActionTypes } from '../actions/director.act
 import { DeleteAllEvents, EventActionTypes } from '../actions/event.actions';
 import { DeleteUserInfoAction } from '../actions/user-info.actions';
 import { DeleteAllUsers } from '../actions/user.actions';
+import { DeleteAllEventsEmployed } from '../actions/events-employed.actions';
+import { DeleteAllEventsSignedUp } from '../actions/events-signed-up.actions';
 
 
 @Injectable()
@@ -28,7 +30,9 @@ export class AuthEffects {
       new DeleteAllEvents(),
       new DeleteDirectorInfo(),
       new DeleteUserInfoAction(),
-      new DeleteAllUsers()
+      new DeleteAllUsers(),
+      new DeleteAllEventsEmployed(),
+      new DeleteAllEventsSignedUp()
     ]),
     tap(() => {
       localStorage.removeItem("user");

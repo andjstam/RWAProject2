@@ -10,7 +10,7 @@ export enum EventActionTypes {
   NEW_EVENT_SUCCESS = '[Event] NEW_EVENT_SUCCESS',
   UPDATE_EVENT = '[Event] UPDATE_EVENT',
   DELETE_EVENT = '[Event] DELETE_EVENT',
-  DELETE_ALL_EVENTS ='[Event] DELETE_ALL_EVENTS'
+  DELETE_ALL_EVENTS ='[Event] DELETE_ALL_EVENTS',
 }
 
 export class LoadAllEvents implements Action {

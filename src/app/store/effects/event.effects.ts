@@ -6,7 +6,6 @@ import { map, mergeMap, tap } from 'rxjs/operators';
 import { DirectorService } from 'src/app/services/director.service';
 import { EventToUpdateTypes } from '../actions/event-to-update.actions';
 import { DeleteEvent, EventActionTypes, LoadAllEvents, LoadDirectorsEvents, NewEvent, UpdateEvent } from '../actions/event.actions';
-import { AppState } from '..';
 import { UserService } from 'src/app/services/user.service';
 
 

@@ -7,6 +7,8 @@ import { AppState } from 'src/app/store';
 import { selectLoggedUser } from 'src/app/store/selectors/auth.selectors';
 import { selectDirectorInfo } from 'src/app/store/selectors/director.selector';
 import { LoadAllUsers } from 'src/app/store/actions/user.actions';
+import { LoadEventsSignedUp } from 'src/app/store/actions/events-signed-up.actions';
+import { LoadAllEventsEmployed } from 'src/app/store/actions/events-employed.actions';
 
 
 @Component({
@@ -36,6 +38,8 @@ export class DirectorComponent implements OnInit {
       this.store.dispatch(new LoadDirectorsEvents(director.id))
     })
     this.store.dispatch(new LoadAllUsers());
+    this.store.dispatch(new LoadEventsSignedUp);
+    this.store.dispatch(new LoadAllEventsEmployed)
   }
 
 }

@@ -21,7 +21,7 @@ export class SearchUsersComponent implements OnInit {
   }
   set inputFilter(value:string){
     this._inputFilter=value;
-    this.filteredUsers= this.inputFilter ? this.filtriraj(this.inputFilter) : this.usersArray;
+    this.filteredUsers= this.inputFilter ? this.filter(this.inputFilter) : this.usersArray;
   }
 
   users$=this.store.pipe(
@@ -29,7 +29,7 @@ export class SearchUsersComponent implements OnInit {
     filter(val => val !== undefined)
   );
   
-  constructor(private store: Store<AppState>, private reziserService: DirectorService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.users$.subscribe(
@@ -37,7 +37,7 @@ export class SearchUsersComponent implements OnInit {
     this.filteredUsers=this.usersArray;
   }
 
-  filtriraj(filterBy: string): User[]{
+  filter(filterBy: string): User[]{
     filterBy=filterBy.toLocaleLowerCase();
     return this.usersArray.filter( (user: User)=>
       user.name.toLocaleLowerCase().indexOf(filterBy)!==-1 || 

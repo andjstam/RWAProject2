@@ -25,6 +25,12 @@ export function userInfoReducer(state = initialState, action: UserInfoActions): 
       userInfo: undefined
     }
 
+    case(UserInfoActionTypes.UPDATE_USER_INFO_ACTION):
+    return{
+      userInfo: action.payload
+    }
+
+
     default:
       return state;
   }

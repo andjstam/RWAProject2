@@ -8,6 +8,7 @@ import { DeleteEvent } from 'src/app/store/actions/event.actions';
 import { Event } from '../../models/Event'
 import { EventToUpdate } from 'src/app/store/actions/event-to-update.actions';
 import { Director } from 'src/app/models/Director';
+import { selectAllEventsSigned } from 'src/app/store/selectors/events-signed-up.selectors';
 
 @Component({
   selector: 'app-profil-reziser',
@@ -28,6 +29,11 @@ export class ProfileDirectorComponent implements OnInit {
 
   director$=this.store.pipe(
     select(selectDirectorInfo),
+    filter(val => val !== undefined)
+  );
+
+  eventsSignedUp$=this.store.pipe(
+    select(selectAllEventsSigned),
     filter(val => val !== undefined)
   );
   
@@ -65,4 +71,9 @@ export class ProfileDirectorComponent implements OnInit {
     this.store.dispatch( new DeleteEvent(event));
   }
 
+  showSignedUsers(event : Event){
+    // this.eventsSignedUp$.pipe(
+    //   filter(ev=>)
+    // )
+  }
 }

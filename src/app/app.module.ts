@@ -31,6 +31,8 @@ import { DirectorEffects} from './store/effects/director.effects';
 import { EventEffects } from './store/effects/event.effects';
 import { UserEffects } from './store/effects/user.effects';
 import { UserInfoEffects } from './store/effects/user-info.effects'
+import { EventsSignedUpEffects } from './store/effects/events-signed-up.effects'
+import { EventsEmployedEffects } from './store/effects/events-employed.effects'
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import { ProfileDirectorComponent } from './components/profile-director/profile-director.component';
 import { SearchEventsComponent } from './components/search-events/search-events.component';
@@ -68,7 +70,13 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     MatCardModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AuthEffects, DirectorEffects, EventEffects, UserEffects, UserInfoEffects]),
+    EffectsModule.forRoot([AuthEffects,
+      DirectorEffects,
+      EventEffects,
+      UserEffects,
+      UserInfoEffects,
+      EventsSignedUpEffects,
+      EventsEmployedEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     })
