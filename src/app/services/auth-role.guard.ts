@@ -20,20 +20,6 @@ export class AuthRoleGuard implements CanActivate {
       value => this.logged=value
     )
     if(this.logged){
-        // this.store.select(selectLoggedUser).subscribe(
-        //   user =>{
-        //     let expectedRole: string=route.data.role;
-        //     console.log("iz stora: "+user.role)
-        //     console.log("ocekivano: "+expectedRole)
-        //     console.log(user.role===expectedRole);
-        //   if(user.role===expectedRole){
-        //     return true;
-        //   }
-        //   else{
-        //   this.router.navigate([`./${user.role}`]);
-        //   return false;
-        //   }
-        // })
         return true;
     }
     this.router.navigate(['./mainPage']);

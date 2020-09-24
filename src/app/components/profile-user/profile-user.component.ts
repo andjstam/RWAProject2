@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { User } from 'src/app/models/User';
@@ -9,6 +9,7 @@ import { selectAllEventsSigned } from 'src/app/store/selectors/events-signed-up.
 import { selectUserInfo } from '../../store/selectors/user-info.selectors'
 import { EventSignedEmplyed } from 'src/app/models/EventSignedEmployed';
 import { DeleteOneEventSignedUp } from 'src/app/store/actions/events-signed-up.actions';
+import { UpdateUserInfoAction } from 'src/app/store/actions/user-info.actions';
 
 @Component({
   selector: 'app-profil-korisnik',
@@ -17,6 +18,7 @@ import { DeleteOneEventSignedUp } from 'src/app/store/actions/events-signed-up.a
 })
 export class ProfileUserComponent implements OnInit {
   allEvents: Event[]=[];
+
   signedEvents: Event[]=[];
   objectsSignedEvents: EventSignedEmplyed[]=[];
   user: User = {
@@ -43,19 +45,7 @@ export class ProfileUserComponent implements OnInit {
   eventsSignedUp$=this.store.pipe(
     select(selectAllEventsSigned),
     filter(val => val !== undefined)
-  ).subscribe((events) =>{
-      events.forEach(eventSigned =>{
-        if(eventSigned.user==this.user.id)
-          this.objectsSignedEvents.push(eventSigned);
-        })
-
-      this.allEvents.forEach((event, indexOf )=>{
-        this.objectsSignedEvents.forEach(id =>{
-          if(event.id === id.event)
-            this.signedEvents.push(event);
-        })
-      })
-    })
+  );
 
   constructor(private store: Store<AppState>) { }
 
@@ -64,20 +54,26 @@ export class ProfileUserComponent implements OnInit {
     this.events$.subscribe(
       (events) => events.forEach(evnet =>  this.allEvents.push(evnet))
     )
+  
+    this.eventsSignedUp$.subscribe((events) =>{
+      events.forEach(eventSigned => this.objectsSignedEvents.push(eventSigned))
+    
+      if(this.objectsSignedEvents.length!=0){
+        this.allEvents.forEach(event=>{
+          this.objectsSignedEvents.forEach(object => {
+            if(event.id===object.event)
+              this.signedEvents.push(event);
+          })
+      })}
+      else {
+        if(this.user.status!="slobodan"){
+          this.user.status="slobodan";
+          if(this.user.id!=undefined)
+            this.store.dispatch(new UpdateUserInfoAction(this.user));
+        }
+      }
+    })
 
-    // this.eventsSignedUp$.subscribe((events) =>{
-    //   events.forEach(eventSigned =>{
-    //     if(eventSigned.user==this.user.id)
-    //       this.objectsSignedEvents.push(eventSigned);
-    //     })
-
-    //   this.allEvents.forEach((event, indexOf )=>{
-    //     this.objectsSignedEvents.forEach(id =>{
-    //       if(event.id === id.event)
-    //         this.signedEvents.push(event);
-    //     })
-    //   })
-    // })
   }
 
   signOutOfEvent(event: Event){
@@ -87,7 +83,10 @@ export class ProfileUserComponent implements OnInit {
         idToDelete=signedEvent.id
       }
     })
+
+    this.objectsSignedEvents=[];
+    this.signedEvents=[];
     this.store.dispatch(new DeleteOneEventSignedUp(idToDelete));
   }
-
+  
 }

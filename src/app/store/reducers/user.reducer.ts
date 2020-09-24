@@ -14,10 +14,15 @@ export const initialState: UserState= userAdapter.getInitialState();
 export function userReducer(state = initialState, action: UserActions): UserState {
   switch (action.type) {
 
-    case UserActionTypes.LOAD_ALL_USERS_SUCCESS:
+    case ( UserActionTypes.LOAD_ALL_USERS_SUCCESS):
       return userAdapter.addMany(action.payload, state);
-    case UserActionTypes.DELETE_ALL_USERS:
+
+    case (UserActionTypes.REMOVE_SPECIFIC_USER):
+      return userAdapter.removeOne(action.payload.id, state)
+
+    case (UserActionTypes.DELETE_ALL_USERS):
       return userAdapter.removeAll(state)
+
     default:
       return state;
   }

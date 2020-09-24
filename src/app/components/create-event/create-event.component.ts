@@ -5,6 +5,7 @@ import { NewEvent, UpdateEvent } from 'src/app/store/actions/event.actions';
 import { AppState } from 'src/app/store';
 import { selectDirectorId } from 'src/app/store/selectors/director.selector';
 import { Event } from "../../models/Event"
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
   selector: 'create-oglas',

@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card'; 
+import {MatDividerModule} from '@angular/material/divider'; 
 
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginComponent } from './components/login/login.component'; 
@@ -68,6 +69,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     MatRadioModule,
     MatSelectModule,
     MatCardModule,
+    MatDividerModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AuthEffects,

@@ -3,8 +3,8 @@ import { Store, select} from '@ngrx/store';
 import { User } from 'src/app/models/User';
 import { AppState } from 'src/app/store';
 import { selectAllUsers } from '../../store/selectors/user.selectors'
-import { DirectorService} from '../../services/director.service'
 import { filter } from 'rxjs/operators';
+import { RemoveSpecificUser } from '../../store/actions/user.actions';
 
 @Component({
   selector: 'app-pretraga-korisnici',
@@ -14,6 +14,17 @@ import { filter } from 'rxjs/operators';
 export class SearchUsersComponent implements OnInit {
   usersArray: User[]=[];
   filteredUsers: User[]=[];
+  showModal: boolean=false;
+  specificUser: User = {
+    id: undefined,
+    name: '',
+    surname: '',
+    email: '',
+    type: '',
+    grade: null,
+    status: '',
+    workPlace: ''
+  };
  
   _inputFilter: string;
   get inputFilter(){
@@ -27,14 +38,19 @@ export class SearchUsersComponent implements OnInit {
   users$=this.store.pipe(
     select(selectAllUsers),
     filter(val => val !== undefined)
-  );
+  )
   
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.users$.subscribe(
-      (users) => users.forEach(u => { this.usersArray.push(u); }))
-    this.filteredUsers=this.usersArray;
+    this.showModal=false;
+    
+    this.users$.subscribe( users => {
+      users.forEach(u =>  {
+        this.usersArray.push(u)
+        this.filteredUsers.push(u);
+      }
+    )})
   }
 
   filter(filterBy: string): User[]{
@@ -45,4 +61,19 @@ export class SearchUsersComponent implements OnInit {
       user.type.toLocaleLowerCase().indexOf(filterBy)!==-1);
   }
 
+  detailsClicked(user: User){
+    this.showModal=true;
+    this.specificUser=user;
+  }
+
+  cancelModal(){
+    this.showModal=false;
+  }
+
+  removeUser(user: User){
+    this.usersArray=[];
+    this.filteredUsers=[];
+    this.specificUser=user;
+    this.store.dispatch(new RemoveSpecificUser(this.specificUser));
+  }
 }

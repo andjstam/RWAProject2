@@ -18,10 +18,11 @@ import { selectAllEventsSigned } from '../../store/selectors/events-signed-up.se
   styleUrls: ['./search-events.component.css']
 })
 export class SearchEventsComponent implements OnInit {
-  allEvents: Event[]=[];
-  signedEvents: Event[]=[];
-  filteredEvents: Event[]=[];
+  notSignedEvents: Event[]=[];
   idsSignedEvents: number[]=[];
+  
+  allEvents: Event[]=[];
+  filteredEvents: Event[]=[];
   user: User = {
     id: undefined,
     name: '',
@@ -60,27 +61,27 @@ export class SearchEventsComponent implements OnInit {
   constructor(private store: Store<AppState>, private userService: UserService) { }
 
   ngOnInit(): void {
+
     this.events$.subscribe(
       (events) => events.forEach(u => { this.allEvents.push(u); }))
-    this.filteredEvents=this.allEvents;
+    this.filteredEvents=this.allEvents; //!!!!
+    //this.pomocniNiz=this.allEvents;
     this.userInfo$.subscribe((user: User) => this.user={...user} );
 
     this.eventsSignedUp$.subscribe((events) =>{
-      events.forEach(eventSigned =>{
-        if(eventSigned.user==this.user.id)
-          this.idsSignedEvents.push(eventSigned.event);
-        })
-
+      events.forEach(eventSigned => this.idsSignedEvents.push(eventSigned.event))
+    
+   
+    if(this.idsSignedEvents.length!=0){
       this.allEvents.forEach((event, indexOf )=>{
-        this.idsSignedEvents.forEach(id =>{
-          if(event.id === id){
-            this.signedEvents.push(event);
-            //this.allEvents.splice(indexOf);
-          }
+        this.idsSignedEvents.forEach(idEvent =>{
+          if(event.id===idEvent)
+            this.allEvents.splice(indexOf,1);
         })
       })
-    })
+    }
 
+    })
   }
 
   filter(filterBy: string): Event[]{
@@ -90,6 +91,8 @@ export class SearchEventsComponent implements OnInit {
   }
 
   signToEvent(event: Event){
+    this.idsSignedEvents=[]; 
+
     if(event.userType===this.user.type){
       let eventSigned= new EventSignedEmplyed(event.id, this.user.id);
       this.store.dispatch(new AddEventSignedUp(eventSigned));
@@ -98,7 +101,7 @@ export class SearchEventsComponent implements OnInit {
         this.store.dispatch(new UpdateUserInfoAction(this.user));
       }
     }
-    else alert('Ne možete se prijaviti na dati event jer ovaj event zahteva drugu vrstu korisnika. Žao nam je!')
+    else alert('Ne možete se prijaviti na dati događaj jer ovaj događaj zahteva drugu vrstu korisnika. Žao nam je!')
   }
 
 }

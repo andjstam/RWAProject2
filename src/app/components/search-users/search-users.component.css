@@ -59,3 +59,127 @@
     background-size: cover;
   }
 
+ 
+.oglas-buttons{
+    display: flex;
+    flex-direction: row;
+  
+}
+
+.oglas-dugme{
+    background-color: rgb(170, 144, 140);
+}
+
+.oglas-dugme:hover{
+    background-color: rgb(146, 125, 122);
+}
+
+.cancel{
+    cursor: pointer;
+    color:  rgb(146, 125, 122);
+    position: absolute;
+    top: 0;
+    right:15px;
+    font-size: 40px;   
+}
+
+.cancel:hover{
+    color:rgb(145, 140, 140);
+}
+
+.modalBackground{
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color: rgba(32, 31, 31, 0.5);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.modal{
+    width: 32%;
+    min-height: 300px ;
+    min-width: 200px;
+    padding: 10px;
+    padding-bottom: 13px;
+    border-radius: 4px;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    font-family: 'Century Gothic';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modalHeader{
+    width: 500px;
+    height:20px;
+    padding: 0px;
+    font-family: 'Century Gothic';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 35px;
+    display:flex;
+    flex-direction: row;
+   
+}
+
+.okBtn{
+    margin-top:10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(197, 32, 32);
+    color:white;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:18px;
+}
+
+.okBtn:hover{
+    transition-duration: 0.2;
+    background-color: rgb(163, 18, 18);
+}
+
+.modalMain{
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.userDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detailsLbl{
+    margin:15px;
+    color: rgb(59, 58, 58);
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.detailsLblFirst{
+    color:rgb(163, 18, 18);
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}

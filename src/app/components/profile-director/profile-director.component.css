@@ -134,3 +134,59 @@
 .oglas-dugme:hover{
     background-color: rgb(146, 125, 122);
 }
+
+.signedUsers{
+    display: flex;
+    flex-direction: column;
+}
+
+.user{
+    margin:5px;
+    padding:5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color:rgb(216, 207, 206);
+    border-radius: 5px;
+}
+
+.zaposli-dugme{
+    display: flex;
+    align-self: flex-end;
+}
+
+.userLbl{
+    margin:10px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 70%;
+}
+
+.header{
+    height:30px;
+    padding: 0px;
+    font-family: 'Century Gothic';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 35px;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.btncancel{
+    display:flex;
+    align-self: end;
+    justify-self: end;
+    cursor: pointer;
+    color: #ccc;
+    position: relative;
+    top: 0;
+    right:15px;
+    font-size: 40px;  
+}
+
+.btncancel:hover{
+    color:rgb(145, 140, 140);
+}

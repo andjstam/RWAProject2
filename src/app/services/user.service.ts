@@ -40,6 +40,11 @@ export class UserService {
     return this.http.get<IEventSignedEmployed[]>(url);
   }
 
+  getAllEventSignedForUser( idUser: number): Observable<IEventSignedEmployed[]>{
+    let url=this.baseUrl+ `/eventSignedUp?user=${idUser}`;
+    return this.http.get<IEventSignedEmployed[]>(url);
+  }
+
   postEventSigned( eventSigned: EventSignedEmplyed): Observable<IEventSignedEmployed>{
     let url=this.baseUrl+"/eventSignedUp";
     return this.http.post<IEventSignedEmployed>(url,eventSigned);
@@ -54,6 +59,12 @@ export class UserService {
     let url=this.baseUrl+"/eventEmployed";
     return this.http.get<IEventSignedEmployed[]>(url);
   }
+
+  getAllEventEmployedForUser( idUser: number): Observable<IEventSignedEmployed[]>{
+    let url=this.baseUrl+ `/eventEmployed?user=${idUser}`;
+    return this.http.get<IEventSignedEmployed[]>(url);
+  }
+
  
   postEventEmployed( eventEmployed: EventSignedEmplyed): Observable<IEventSignedEmployed>{
     let url=this.baseUrl+"/eventEmployed";

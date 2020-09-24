@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import {Actions, ofType, createEffect, Effect} from '@ngrx/effects';
 import { UserService } from 'src/app/services/user.service';
 import { map, mergeMap, tap } from 'rxjs/operators';
-import { AddEventSignedUp, DeleteOneEventSignedUp, EventsSignedUpActionTypes, LoadEventsSignedUp } from '../actions/events-signed-up.actions';
+import { AddEventSignedUp, DeleteOneEventSignedUp, EventsSignedUpActionTypes, LoadEventsSignedUp, LoadEventsSignedUpForUser } from '../actions/events-signed-up.actions';
 import { EventSignedEmplyed } from 'src/app/models/EventSignedEmployed';
 import { noop } from 'rxjs';
 
@@ -14,6 +14,16 @@ export class EventsSignedUpEffects {
         mergeMap(()=>this.userService.getAllEventSigned().pipe(
         map((events)=>({
             type:EventsSignedUpActionTypes.LOAD_EVENTS_SIGNED_UP_SUCCESS,
+            payload: events
+        })))
+    )))
+
+    getAllEventsSignedUpForUser=createEffect(()=> this.actions$.pipe(
+        ofType<LoadEventsSignedUpForUser>(EventsSignedUpActionTypes.LOAD_EVENTS_SIGNED_UP_FOR_USER),
+        map(action => action.idUser),
+        mergeMap((idUser)=>this.userService.getAllEventSignedForUser(idUser).pipe(
+        map((events)=>({
+            type:EventsSignedUpActionTypes.LOAD_EVENTS_SIGNED_UP_FOR_USER_SUCCESS,
             payload: events
         })))
     )))

@@ -18,13 +18,22 @@
                     <mat-card-subtitle>Broj potrebnih korisnika: {{event.userCount}}</mat-card-subtitle>
                     <div class="oglas-buttons">
                         <button class="oglas-dugme" mat-button (click)="onUpdateClick(event);">Izmeni</button>
-                        <button class="oglas-dugme" mat-button (click)="showSignedUsers(event);">Lista prijavljenih korisnika</button>
+                        <button class="oglas-dugme" mat-button (click)="showSignedUsers(event);" >Lista prijavljenih korisnika</button>
                         <button class="oglas-dugme" mat-button (click)="onDeleteClick(event);">Obriši</button>
                     </div>
                 </mat-card-actions>
                 <div class="oglas-image" ></div>
             </div>
-          </mat-card>
+            <div class="signedUsers" *ngIf="event.id===idEvent">
+                <div class="header" *ngIf="signedUsers && signedUsers.length">
+                    <span class="btncancel" (click)="closeSignedUsers();">&times;</span>
+                </div>
+                <div *ngFor="let user of signedUsers" class="user">
+                    <label class="userLbl"><b>{{user.name}} {{user.surname}}</b>, Email: <b>{{user.email}}</b></label>
+                    <button class="oglas-dugme zaposli-dugme" mat-button >Zaposli</button>
+                </div>
+            </div>
+        </mat-card>
     </div>
 </div>
 

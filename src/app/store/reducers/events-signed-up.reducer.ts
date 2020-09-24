@@ -19,6 +19,9 @@ export function eventsSignedUpReducer(state = initialState, action: EventsSigned
     case(EventsSignedUpActionTypes.LOAD_EVENTS_SIGNED_UP_SUCCESS):
       return adapter.addMany(action.payload, state);
 
+    case(EventsSignedUpActionTypes.LOAD_EVENTS_SIGNED_UP_FOR_USER_SUCCESS):
+      return adapter.addMany(action.payload, state);
+
     case (EventsSignedUpActionTypes.DELETE_ALL_EVENTS_SIGNED_UP):
       return adapter.removeAll(state);
 
