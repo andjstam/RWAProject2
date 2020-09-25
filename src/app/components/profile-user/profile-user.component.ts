@@ -18,7 +18,6 @@ import { UpdateUserInfoAction } from 'src/app/store/actions/user-info.actions';
 })
 export class ProfileUserComponent implements OnInit {
   allEvents: Event[]=[];
-
   signedEvents: Event[]=[];
   objectsSignedEvents: EventSignedEmplyed[]=[];
   user: User = {
@@ -54,7 +53,9 @@ export class ProfileUserComponent implements OnInit {
     this.events$.subscribe(
       (events) => events.forEach(evnet =>  this.allEvents.push(evnet))
     )
-  
+    this.objectsSignedEvents=[];
+    this.signedEvents=[];
+    
     this.eventsSignedUp$.subscribe((events) =>{
       events.forEach(eventSigned => this.objectsSignedEvents.push(eventSigned))
     

@@ -64,8 +64,7 @@ export class SearchEventsComponent implements OnInit {
 
     this.events$.subscribe(
       (events) => events.forEach(u => { this.allEvents.push(u); }))
-    this.filteredEvents=this.allEvents; //!!!!
-    //this.pomocniNiz=this.allEvents;
+    this.filteredEvents=this.allEvents;
     this.userInfo$.subscribe((user: User) => this.user={...user} );
 
     this.eventsSignedUp$.subscribe((events) =>{

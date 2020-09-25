@@ -21,7 +21,7 @@ import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_c
 })
 export class ProfileDirectorComponent implements OnInit {
   allUsers: User[]=[];
-  signedUsers: User[]=[]; //popunjavamo u odnosu na EventsSignedUp$
+  signedUsers: User[]=[];
   objectSignedEvents: EventSignedEmplyed[]=[];
   idsSignedUsers: number[]=[];
   idEvent:number;
